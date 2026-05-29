@@ -1,0 +1,276 @@
+Device: cuda, PyTorch: 2.8.0+cu129
+Global seed set to 42; CuDNN deterministic enabled.
+
+
+Loading uci_gene_expression (UCI 401 gene expression (Fiorini, 2016))...
+08:50:31 [INFO] 
+########################################################################
+08:50:31 [INFO] # uci_gene_expression: UCI 401 gene expression (Fiorini, 2016)
+08:50:31 [INFO] # Samples: 801, Features: 20531, Classes: 5
+08:50:31 [INFO] #   BRCA: 300
+08:50:31 [INFO] #   COAD: 78
+08:50:31 [INFO] #   KIRC: 146
+08:50:31 [INFO] #   LUAD: 141
+08:50:31 [INFO] #   PRAD: 136
+08:50:31 [INFO] # BIR params: p<1e-06, sparse<0.05, max_birs=5000
+08:50:31 [INFO] ########################################################################
+08:50:31 [INFO] Selecting top 2000 features by F-test...
+/home/tirtharaj/miniconda3/envs/pytorch-env/lib/python3.13/site-packages/sklearn/feature_selection/_univariate_selection.py:110: UserWarning: Features [    5    23  4370  4808  4809  4814  4816  4817  4831  5288  7661  7662
+  7663  7664  7665  8121  9304  9306  9314  9316  9320  9452 10121 11958
+ 13991 14158 14159 14161 15138 15140 15141 15446 16566 16568 16569 16571
+ 16575 16578 16579 16604 16634 16637 16677 16697 16698 16699 16700 16701
+ 16702 16704 16705 16706 16707 16708 16709 16710 16711 16712 16713 16714
+ 16715 16716 16717 16718 16719 16720 16721 16722 16723 16724 16725 16726
+ 16727 16728 16729 16730 16731 16732 16733 16734 16735 16736 16737 16738
+ 16739 16740 16741 16742 16743 16744 16745 16746 16748 16749 16750 16751
+ 16752 16753 16754 16756 16757 16758 16759 16760 16761 16762 16763 16764
+ 16765 16766 16767 16768 16769 16770 16771 16772 16774 16775 16776 16777
+ 16778 16779 16780 16781 16782 16783 16785 16787 16788 16789 16790 16791
+ 16792 16794 16795 16796 16798 16799 16800 16801 16802 16803 16804 16805
+ 16806 16807 16808 16809 16810 16811 16812 16813 16816 16818 16819 16820
+ 16821 16822 16823 16824 16826 16827 16830 16831 16832 16833 16834 16835
+ 16836 16837 16838 16839 16840 16841 16842 16843 16844 16845 16846 16847
+ 16848 16849 16850 16851 16852 16853 16854 16855 16856 16857 16858 16859
+ 16860 16861 16862 16863 16864 16865 16866 16867 16868 16869 16870 16871
+ 16872 16873 16874 16875 16876 16877 16878 16879 16880 16881 16882 16883
+ 16884 16885 16886 16888 16889 16890 16891 16892 16893 16894 16895 16896
+ 16897 16898 16899 16900 16901 16902 16903 16904 16905 16906 16907 16908
+ 16909 16910 16911 16914 16915 16916 16917 16918 16920 16921 16922 16924
+ 16925 16926 18829 18902 18903 18908 18909 18910 18911 18914 18915 19450
+ 19451 19452 19671] are constant.
+  warnings.warn("Features %s are constant." % constant_features_idx, UserWarning)
+/home/tirtharaj/miniconda3/envs/pytorch-env/lib/python3.13/site-packages/sklearn/feature_selection/_univariate_selection.py:111: RuntimeWarning: invalid value encountered in divide
+  f = msb / msw
+08:50:31 [INFO] Reduced to 2000 features
+08:50:31 [INFO] 
+--- Global BIR Discovery Overview ---
+  BIR discovery: 2000 features, 1999000 pairs, 23 workers
+  200/1999 features processed, 122417 BIRs
+  400/1999 features processed, 227977 BIRs
+  600/1999 features processed, 314965 BIRs
+  800/1999 features processed, 393668 BIRs
+  1000/1999 features processed, 458616 BIRs
+  1200/1999 features processed, 510237 BIRs
+  1400/1999 features processed, 556631 BIRs
+  1600/1999 features processed, 589093 BIRs
+  1800/1999 features processed, 610908 BIRs
+Found 616777 BIRs (2000 features)
+  High->High: 154434
+  Low->Low: 153030
+  High->Low: 250304
+  Low->High: 49402
+  Equivalent: 7016
+  Opposite: 2591
+  Capped at 10000 strongest BIRs by p-value
+08:50:43 [INFO] Top 8 strongest primary BIRs (by p-value):
+08:50:43 [INFO]   p=2.62e-99             gene_4773 --[High->High]--> gene_8891
+08:50:43 [INFO]   p=2.62e-99             gene_4773 --[  Low->Low]--> gene_8891
+08:50:43 [INFO]   p=2.62e-99             gene_4773 --[High->High]--> gene_15301
+08:50:43 [INFO]   p=2.62e-99             gene_4773 --[  Low->Low]--> gene_15301
+08:50:43 [INFO]   p=2.62e-99             gene_8891 --[High->High]--> gene_15301
+08:50:43 [INFO]   p=2.62e-99             gene_8891 --[  Low->Low]--> gene_15301
+08:50:43 [INFO]   p=1.15e-98             gene_4773 --[  Low->Low]--> gene_5453
+08:50:43 [INFO]   p=1.15e-98             gene_5453 --[High->High]--> gene_8891
+08:50:43 [INFO] 
+--- 5-Fold Cross-Validation ---
+08:50:43 [INFO]   [fold 1] discovering BIRs on training set...
+08:51:36 [INFO]   [fold 1] BIRDNet built: 10000 units, training...
+08:51:39 [INFO] Epoch  10/200 | Train: 0.4822 | Val: 0.2524 | Acc: 0.8958 | F1: 0.8726
+08:51:42 [INFO] Epoch  20/200 | Train: 0.2274 | Val: 0.1022 | Acc: 0.9583 | F1: 0.9452
+08:51:45 [INFO] Epoch  30/200 | Train: 0.1508 | Val: 0.0520 | Acc: 0.9792 | F1: 0.9742
+08:51:47 [INFO] Epoch  40/200 | Train: 0.1071 | Val: 0.0308 | Acc: 0.9896 | F1: 0.9912
+08:51:50 [INFO] Epoch  50/200 | Train: 0.0784 | Val: 0.0118 | Acc: 1.0000 | F1: 1.0000
+08:51:52 [INFO] Epoch  60/200 | Train: 0.0745 | Val: 0.0090 | Acc: 1.0000 | F1: 1.0000
+08:51:54 [INFO] Epoch  70/200 | Train: 0.0577 | Val: 0.0167 | Acc: 0.9896 | F1: 0.9825
+08:51:56 [INFO] Early stopping at epoch 76
+/home/tirtharaj/miniconda3/envs/pytorch-env/lib/python3.13/site-packages/sklearn/linear_model/_sag.py:348: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  warnings.warn(
+08:53:21 [INFO]   Fold 1: BIRDNet 0.988 (10000 units, build 53.2s + train 19.9s) | MLP 1.000 (4.3s) | LR 1.000 (80.5s) | RF 1.000 (0.2s) | total 158.7s
+08:53:21 [INFO]   [fold 2] discovering BIRs on training set...
+08:54:14 [INFO]   [fold 2] BIRDNet built: 10000 units, training...
+08:54:17 [INFO] Epoch  10/200 | Train: 0.4676 | Val: 0.2807 | Acc: 0.8454 | F1: 0.8177
+08:54:19 [INFO] Epoch  20/200 | Train: 0.3202 | Val: 0.1596 | Acc: 0.9588 | F1: 0.9439
+08:54:22 [INFO] Epoch  30/200 | Train: 0.2581 | Val: 0.0865 | Acc: 0.9691 | F1: 0.9585
+08:54:25 [INFO] Epoch  40/200 | Train: 0.1505 | Val: 0.0514 | Acc: 0.9794 | F1: 0.9753
+08:54:27 [INFO] Epoch  50/200 | Train: 0.1487 | Val: 0.0683 | Acc: 0.9691 | F1: 0.9585
+08:54:30 [INFO] Epoch  60/200 | Train: 0.1452 | Val: 0.0259 | Acc: 0.9897 | F1: 0.9912
+08:54:32 [INFO] Epoch  70/200 | Train: 0.0974 | Val: 0.0412 | Acc: 0.9897 | F1: 0.9912
+08:54:34 [INFO] Epoch  80/200 | Train: 0.0811 | Val: 0.0230 | Acc: 0.9897 | F1: 0.9912
+08:54:36 [INFO] Epoch  90/200 | Train: 0.0737 | Val: 0.0355 | Acc: 0.9897 | F1: 0.9912
+08:54:39 [INFO] Epoch 100/200 | Train: 0.0826 | Val: 0.0189 | Acc: 0.9897 | F1: 0.9912
+08:54:41 [INFO] Epoch 110/200 | Train: 0.0667 | Val: 0.0239 | Acc: 0.9897 | F1: 0.9912
+08:54:43 [INFO] Epoch 120/200 | Train: 0.0409 | Val: 0.0159 | Acc: 0.9897 | F1: 0.9912
+08:54:46 [INFO] Epoch 130/200 | Train: 0.0380 | Val: 0.0341 | Acc: 0.9897 | F1: 0.9912
+08:54:47 [INFO] Early stopping at epoch 135
+08:56:03 [INFO]   Fold 2: BIRDNet 0.994 (10000 units, build 52.5s + train 33.1s) | MLP 1.000 (4.1s) | LR 1.000 (71.4s) | RF 1.000 (0.2s) | total 161.8s
+08:56:03 [INFO]   [fold 3] discovering BIRs on training set...
+08:56:56 [INFO]   [fold 3] BIRDNet built: 10000 units, training...
+08:56:59 [INFO] Epoch  10/200 | Train: 0.3888 | Val: 0.2077 | Acc: 0.9072 | F1: 0.8835
+08:57:02 [INFO] Epoch  20/200 | Train: 0.2315 | Val: 0.0535 | Acc: 0.9691 | F1: 0.9615
+08:57:04 [INFO] Epoch  30/200 | Train: 0.1291 | Val: 0.0297 | Acc: 0.9794 | F1: 0.9726
+08:57:07 [INFO] Epoch  40/200 | Train: 0.1068 | Val: 0.0416 | Acc: 0.9897 | F1: 0.9886
+08:57:09 [INFO] Epoch  50/200 | Train: 0.1152 | Val: 0.0108 | Acc: 0.9897 | F1: 0.9886
+08:57:11 [INFO] Epoch  60/200 | Train: 0.0664 | Val: 0.0393 | Acc: 0.9897 | F1: 0.9886
+08:57:14 [INFO] Epoch  70/200 | Train: 0.0640 | Val: 0.0292 | Acc: 0.9897 | F1: 0.9886
+08:57:14 [INFO] Early stopping at epoch 70
+/home/tirtharaj/miniconda3/envs/pytorch-env/lib/python3.13/site-packages/sklearn/linear_model/_sag.py:348: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  warnings.warn(
+08:58:39 [INFO]   Fold 3: BIRDNet 0.981 (10000 units, build 53.2s + train 17.5s) | MLP 1.000 (4.2s) | LR 0.994 (80.8s) | RF 0.994 (0.2s) | total 156.4s
+08:58:39 [INFO]   [fold 4] discovering BIRs on training set...
+08:59:35 [INFO]   [fold 4] BIRDNet built: 10000 units, training...
+08:59:37 [INFO] Epoch  10/200 | Train: 0.4124 | Val: 0.3031 | Acc: 0.8557 | F1: 0.8193
+08:59:40 [INFO] Epoch  20/200 | Train: 0.2744 | Val: 0.1716 | Acc: 0.9381 | F1: 0.9392
+08:59:42 [INFO] Epoch  30/200 | Train: 0.1622 | Val: 0.1413 | Acc: 0.9485 | F1: 0.9460
+08:59:45 [INFO] Epoch  40/200 | Train: 0.1412 | Val: 0.1353 | Acc: 0.9485 | F1: 0.9460
+08:59:47 [INFO] Epoch  50/200 | Train: 0.0909 | Val: 0.1007 | Acc: 0.9691 | F1: 0.9635
+08:59:50 [INFO] Epoch  60/200 | Train: 0.0732 | Val: 0.1088 | Acc: 0.9588 | F1: 0.9543
+08:59:52 [INFO] Epoch  70/200 | Train: 0.0437 | Val: 0.1494 | Acc: 0.9485 | F1: 0.9460
+08:59:52 [INFO] Early stopping at epoch 73
+09:01:14 [INFO]   Fold 4: BIRDNet 0.988 (10000 units, build 55.1s + train 17.9s) | MLP 1.000 (9.4s) | LR 1.000 (71.7s) | RF 1.000 (0.2s) | total 154.9s
+09:01:14 [INFO]   [fold 5] discovering BIRs on training set...
+09:02:09 [INFO]   [fold 5] BIRDNet built: 10000 units, training...
+09:02:12 [INFO] Epoch  10/200 | Train: 0.4325 | Val: 0.2451 | Acc: 0.8763 | F1: 0.8312
+09:02:14 [INFO] Epoch  20/200 | Train: 0.3426 | Val: 0.1444 | Acc: 0.9485 | F1: 0.9293
+09:02:17 [INFO] Epoch  30/200 | Train: 0.2077 | Val: 0.0926 | Acc: 0.9691 | F1: 0.9590
+09:02:20 [INFO] Epoch  40/200 | Train: 0.1913 | Val: 0.0549 | Acc: 0.9794 | F1: 0.9764
+09:02:22 [INFO] Epoch  50/200 | Train: 0.1475 | Val: 0.0596 | Acc: 0.9588 | F1: 0.9406
+09:02:25 [INFO] Epoch  60/200 | Train: 0.0864 | Val: 0.0401 | Acc: 0.9691 | F1: 0.9620
+09:02:27 [INFO] Epoch  70/200 | Train: 0.0983 | Val: 0.0137 | Acc: 1.0000 | F1: 1.0000
+09:02:29 [INFO] Epoch  80/200 | Train: 0.0349 | Val: 0.0220 | Acc: 0.9897 | F1: 0.9882
+09:02:32 [INFO] Epoch  90/200 | Train: 0.0372 | Val: 0.0309 | Acc: 0.9897 | F1: 0.9882
+09:02:32 [INFO] Early stopping at epoch 90
+09:03:56 [INFO]   Fold 5: BIRDNet 0.975 (10000 units, build 54.5s + train 22.9s) | MLP 1.000 (5.3s) | LR 0.988 (78.2s) | RF 0.994 (0.2s) | total 161.6s
+09:03:56 [INFO] 
+========================================================================
+09:03:56 [INFO] RESULTS: uci_gene_expression: UCI 401 gene expression (Fiorini, 2016)
+09:03:56 [INFO] ========================================================================
+09:03:56 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+09:03:56 [INFO] ------------------------------------------------------------------------
+09:03:56 [INFO] BIRDNet         0.9850 +/- 0.0064 0.9833 +/- 0.0065 0.9997 +/- 0.0005         75.9
+09:03:56 [INFO] MLP             1.0000 +/- 0.0000 1.0000 +/- 0.0000 1.0000 +/- 0.0000          5.4
+09:03:56 [INFO] LogReg_L1       0.9963 +/- 0.0050 0.9968 +/- 0.0043 1.0000 +/- 0.0000         76.5
+09:03:56 [INFO] RandomForest    0.9975 +/- 0.0031 0.9979 +/- 0.0026 1.0000 +/- 0.0000          0.2
+09:03:56 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+09:03:56 [INFO]          binarize: 17.95s (min 17.88, max 18.01)
+09:03:56 [INFO]     bir_discovery: 25.91s (min 24.94, max 27.14)
+09:03:56 [INFO]            select: 5.72s (min 5.58, max 6.00)
+09:03:56 [INFO]           forward: 0.09s (min 0.05, max 0.21)
+09:03:56 [INFO]       build_total: 53.68s (min 52.49, max 55.09)
+09:03:56 [INFO]             train: 22.27s (min 17.50, max 33.07)
+09:03:56 [INFO]         BIR units: mean 10000, range 10000-10000
+09:03:56 [INFO] 
+Parameter counts (mean over folds):
+09:03:56 [INFO]        BIRDNet active (BIR layers): 30,000
+09:03:56 [INFO]       BIRDNet nominal (BIR layers): 35,010,000
+09:03:56 [INFO]            Classifier head (dense): 340,389
+09:03:56 [INFO]               BIRDNet total active: 370,389
+09:03:56 [INFO]              BIRDNet total nominal: 35,350,389
+09:03:56 [INFO]                   MatchedMLP total: 35,350,389
+09:03:56 [INFO]                 BIR-layer sparsity: 0.9991 (0.09% active)
+09:03:56 [INFO]                     Total sparsity: 0.9895 (1.05% active)
+09:03:56 [INFO]                  MLP/BIRDNet ratio: 95.4x
+09:03:56 [INFO] 
+--- Final Model for Explainability (80/20 split, seed=42) ---
+09:03:56 [INFO]   [fold final] discovering BIRs on training set...
+09:04:55 [INFO]   [fold final] BIRDNet built: 10000 units, training...
+09:04:58 [INFO] Epoch  10/200 | Train: 0.3470 | Val: 0.2577 | Acc: 0.8447 | F1: 0.7905
+09:05:01 [INFO] Epoch  20/200 | Train: 0.2012 | Val: 0.0974 | Acc: 0.9565 | F1: 0.9374
+09:05:04 [INFO] Epoch  30/200 | Train: 0.1731 | Val: 0.0668 | Acc: 0.9565 | F1: 0.9381
+09:05:07 [INFO] Epoch  40/200 | Train: 0.1225 | Val: 0.0481 | Acc: 0.9689 | F1: 0.9543
+09:05:10 [INFO] Epoch  50/200 | Train: 0.0721 | Val: 0.0315 | Acc: 0.9876 | F1: 0.9806
+09:05:13 [INFO] Epoch  60/200 | Train: 0.0386 | Val: 0.0196 | Acc: 0.9876 | F1: 0.9806
+09:05:16 [INFO] Epoch  70/200 | Train: 0.0762 | Val: 0.0273 | Acc: 0.9938 | F1: 0.9903
+09:05:18 [INFO] Epoch  80/200 | Train: 0.0530 | Val: 0.0131 | Acc: 0.9876 | F1: 0.9806
+09:05:18 [INFO] Early stopping at epoch 81
+09:05:19 [INFO]   Final model: Acc=0.9876, F1=0.9806
+09:05:19 [INFO] 
+--- Per-Class Decision Rules (DRM-style propositionalisation) ---
+09:05:26 [INFO] 
+Class: BRCA
+------------------------------------------------------------
+  R1. IF BIR_High->High(gene_6530, gene_18746) fires
+        THEN class=BRCA  (precision=1.000, recall=0.833, lift=2.68, support=0.311)
+  R2. IF BIR_High->Low(gene_6876, gene_8891) fires
+        THEN class=BRCA  (precision=1.000, recall=0.900, lift=2.68, support=0.335)
+  R3. IF BIR_High->Low(gene_6876, gene_15301) fires
+        THEN class=BRCA  (precision=1.000, recall=0.933, lift=2.68, support=0.348)
+  R4. IF BIR_High->High(gene_706, gene_9652) fires
+        THEN class=BRCA  (precision=1.000, recall=0.733, lift=2.68, support=0.273)
+  R5. IF BIR_High->Low(gene_6530, gene_6611) fires
+        THEN class=BRCA  (precision=1.000, recall=0.883, lift=2.68, support=0.329)
+
+Class: COAD
+------------------------------------------------------------
+  R1. IF BIR_High->Low(gene_6748, gene_17738) fires
+        THEN class=COAD  (precision=0.609, recall=0.875, lift=6.13, support=0.143)
+  R2. IF BIR_High->Low(gene_7896, gene_18746) fires
+        THEN class=COAD  (precision=0.452, recall=0.875, lift=4.54, support=0.193)
+  R3. IF BIR_Low->Low(gene_7073, gene_17738) fires
+        THEN class=COAD  (precision=0.444, recall=0.750, lift=4.47, support=0.168)
+  R4. IF BIR_Low->Low(gene_8598, gene_17738) fires
+        THEN class=COAD  (precision=0.441, recall=0.938, lift=4.44, support=0.211)
+  R5. IF BIR_High->Low(gene_8349, gene_18746) fires
+        THEN class=COAD  (precision=0.441, recall=0.938, lift=4.44, support=0.211)
+
+Class: KIRC
+------------------------------------------------------------
+  R1. IF BIR_High->Low(gene_3860, gene_14190) fires
+        THEN class=KIRC  (precision=1.000, recall=0.867, lift=5.37, support=0.161)
+  R2. IF BIR_High->High(gene_219, gene_220) fires
+        THEN class=KIRC  (precision=1.000, recall=0.967, lift=5.37, support=0.180)
+  R3. IF BIR_High->High(gene_219, gene_19151) fires
+        THEN class=KIRC  (precision=1.000, recall=1.000, lift=5.37, support=0.186)
+  R4. IF BIR_High->High(gene_220, gene_19151) fires
+        THEN class=KIRC  (precision=1.000, recall=1.000, lift=5.37, support=0.186)
+  R5. IF BIR_High->High(gene_3860, gene_5597) fires
+        THEN class=KIRC  (precision=1.000, recall=0.833, lift=5.37, support=0.155)
+
+Class: LUAD
+------------------------------------------------------------
+  R1. IF BIR_High->High(gene_15591, gene_15895) fires
+        THEN class=LUAD  (precision=1.000, recall=0.786, lift=5.75, support=0.137)
+  R2. IF BIR_High->High(gene_15591, gene_15898) fires
+        THEN class=LUAD  (precision=1.000, recall=0.821, lift=5.75, support=0.143)
+  R3. IF BIR_High->High(gene_15896, gene_15898) fires
+        THEN class=LUAD  (precision=1.000, recall=0.821, lift=5.75, support=0.143)
+  R4. IF BIR_High->Low(gene_11550, gene_17769) fires
+        THEN class=LUAD  (precision=0.542, recall=0.929, lift=3.11, support=0.298)
+  R5. IF BIR_High->Low(gene_15633, gene_17769) fires
+        THEN class=LUAD  (precision=0.511, recall=0.821, lift=2.94, support=0.280)
+
+Class: PRAD
+------------------------------------------------------------
+  R1. IF BIR_High->High(gene_9175, gene_13950) fires
+        THEN class=PRAD  (precision=1.000, recall=1.000, lift=5.96, support=0.168)
+  R2. IF BIR_High->High(gene_203, gene_380) fires
+        THEN class=PRAD  (precision=1.000, recall=1.000, lift=5.96, support=0.168)
+  R3. IF BIR_High->High(gene_16358, gene_17664) fires
+        THEN class=PRAD  (precision=1.000, recall=1.000, lift=5.96, support=0.168)
+  R4. IF BIR_High->High(gene_14798, gene_17168) fires
+        THEN class=PRAD  (precision=1.000, recall=0.963, lift=5.96, support=0.161)
+  R5. IF BIR_High->High(gene_9175, gene_11910) fires
+        THEN class=PRAD  (precision=1.000, recall=1.000, lift=5.96, support=0.168)
+09:05:26 [INFO] 
+--- Per-Instance Explanation (DRM-style, test sample 0) ---
+09:05:26 [INFO]   Predicted: KIRC  (true: KIRC)
+09:05:26 [INFO]   Probabilities: BRCA=0.000, COAD=0.003, KIRC=0.987, LUAD=0.010, PRAD=0.000
+09:05:26 [INFO]   Rules fired: 2414/5000
+09:05:26 [INFO]   Top 5 contributing rules:
+09:05:26 [INFO]     [FIRED] BIR_High->High(gene_220, gene_14767) fires                    act=1.353  contrib=9.908
+09:05:26 [INFO]     [FIRED] BIR_High->High(gene_11566, gene_12983) fires                  act=1.906  contrib=8.561
+09:05:26 [INFO]     [FIRED] BIR_Low->Low(gene_439, gene_6593) fires                       act=1.997  contrib=7.740
+09:05:26 [INFO]     [FIRED] BIR_High->Low(gene_219, gene_17906) fires                     act=1.562  contrib=7.334
+09:05:26 [INFO]     [FIRED] BIR_Low->Low(gene_3428, gene_7481) fires                      act=0.989  contrib=7.302
+09:05:26 [INFO] 
+--- Per-Instance LRP Explanation Tree (test sample 0) ---
+09:05:26 [INFO]   Target class: KIRC (true: KIRC)
+09:05:26 [INFO] - Predicted class: KIRC  [R=+4.6067  val=4.607]
+  - dense_0[4]  [R=+1.0463  contrib=+1.0463]
+    - BIR_Low->Low(feat_2666, feat_3701)  [R=+0.8669  contrib=+0.1774]
+    - BIR_Low->Low(feat_3316, feat_4586)  [R=+0.8173  contrib=+0.1746]
+  - dense_0[51]  [R=+0.9940  contrib=+0.9940]
+    - BIR_Low->Low(feat_2666, feat_3701)  [R=+0.8669  contrib=+0.1907]
+    - BIR_Low->Low(feat_3316, feat_4586)  [R=+0.8173  contrib=+0.1886]
+09:05:26 [INFO] 
+  Note: tree truncated at depth 4. Full tree available via tree_to_dict() for offline analysis.

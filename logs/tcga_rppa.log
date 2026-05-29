@@ -1,0 +1,560 @@
+Device: cuda, PyTorch: 2.8.0+cu129
+Global seed set to 42; CuDNN deterministic enabled.
+
+
+Loading tcga_rppa (TCGA pan-cancer RPPA (Akbani et al., 2014))...
+08:18:37 [INFO] 
+########################################################################
+08:18:37 [INFO] # tcga_rppa: TCGA pan-cancer RPPA (Akbani et al., 2014)
+08:18:37 [INFO] # Samples: 7500, Features: 258, Classes: 27
+08:18:37 [INFO] #   BLCA: 344
+08:18:37 [INFO] #   BRCA: 878
+08:18:37 [INFO] #   CESC: 171
+08:18:37 [INFO] #   COAD: 354
+08:18:37 [INFO] #   ESCA: 126
+08:18:37 [INFO] #   GBM: 211
+08:18:37 [INFO] #   HNSC: 346
+08:18:37 [INFO] #   KICH: 63
+08:18:37 [INFO] #   KIRC: 444
+08:18:37 [INFO] #   KIRP: 208
+08:18:37 [INFO] #   LGG: 432
+08:18:37 [INFO] #   LIHC: 184
+08:18:37 [INFO] #   LUAD: 361
+08:18:37 [INFO] #   LUSC: 325
+08:18:37 [INFO] #   MESO: 61
+08:18:37 [INFO] #   OV: 417
+08:18:37 [INFO] #   PAAD: 105
+08:18:37 [INFO] #   PCPG: 82
+08:18:37 [INFO] #   PRAD: 351
+08:18:37 [INFO] #   READ: 128
+08:18:37 [INFO] #   SARC: 224
+08:18:37 [INFO] #   SKCM: 353
+08:18:37 [INFO] #   STAD: 357
+08:18:37 [INFO] #   TGCT: 107
+08:18:37 [INFO] #   THCA: 374
+08:18:37 [INFO] #   THYM: 90
+08:18:37 [INFO] #   UCEC: 404
+08:18:37 [INFO] # BIR params: p<1e-06, sparse<0.05, max_birs=5000
+08:18:37 [INFO] ########################################################################
+08:18:37 [INFO] 
+--- Global BIR Discovery Overview ---
+  BIR discovery: 258 features, 33153 pairs, 23 workers
+  200/257 features processed, 2378 BIRs
+Found 2405 BIRs (258 features)
+  High->High: 420
+  Low->Low: 355
+  High->Low: 1537
+  Low->High: 86
+  Equivalent: 7
+08:18:50 [INFO] Top 8 strongest primary BIRs (by p-value):
+08:18:50 [INFO]   p=0.00e+00              ACC_pS79 --[High->High]--> ACC1
+08:18:50 [INFO]   p=0.00e+00              PKCALPHA --[High->High]--> PKCALPHA_pS657
+08:18:50 [INFO]   p=0.00e+00              PKCALPHA --[  Low->Low]--> PKCALPHA_pS657
+08:18:50 [INFO]   p=2.89e-307             AKT_pS473 --[  Low->Low]--> AKT_pT308
+08:18:50 [INFO]   p=2.41e-257              CYCLINB1 --[  Low->Low]--> MSH6
+08:18:50 [INFO]   p=1.02e-228              CLAUDIN7 --[High->High]--> ECADHERIN
+08:18:50 [INFO]   p=4.30e-217                  MSH6 --[High->High]--> BRD4
+08:18:50 [INFO]   p=3.66e-210                 RBM15 --[  Low->Low]--> MSH6
+08:18:50 [INFO] 
+--- 5-Fold Cross-Validation ---
+08:18:50 [INFO]   [fold 1] discovering BIRs on training set...
+08:20:12 [INFO]   [fold 1] BIRDNet built: 7090 units, training...
+08:20:19 [INFO] Epoch  10/200 | Train: 0.2247 | Val: 0.1146 | Acc: 0.9567 | F1: 0.9331
+08:20:26 [INFO] Epoch  20/200 | Train: 0.1827 | Val: 0.1022 | Acc: 0.9611 | F1: 0.9372
+08:20:33 [INFO] Epoch  30/200 | Train: 0.1459 | Val: 0.0968 | Acc: 0.9589 | F1: 0.9373
+08:20:39 [INFO] Epoch  40/200 | Train: 0.1313 | Val: 0.1044 | Acc: 0.9611 | F1: 0.9387
+08:20:46 [INFO] Epoch  50/200 | Train: 0.1135 | Val: 0.0925 | Acc: 0.9644 | F1: 0.9408
+08:20:53 [INFO] Epoch  60/200 | Train: 0.1092 | Val: 0.0908 | Acc: 0.9633 | F1: 0.9405
+08:21:00 [INFO] Early stopping at epoch 69
+08:23:35 [INFO]   Fold 1: BIRDNet 0.961 (7090 units, build 82.0s + train 47.4s) | MLP 0.958 (18.9s) | LR 0.965 (135.2s) | RF 0.952 (0.5s) | total 284.4s
+08:23:35 [INFO]   [fold 2] discovering BIRs on training set...
+08:24:58 [INFO]   [fold 2] BIRDNet built: 7114 units, training...
+08:25:05 [INFO] Epoch  10/200 | Train: 0.2394 | Val: 0.0989 | Acc: 0.9611 | F1: 0.9264
+08:25:12 [INFO] Epoch  20/200 | Train: 0.1809 | Val: 0.0786 | Acc: 0.9678 | F1: 0.9455
+08:25:19 [INFO] Epoch  30/200 | Train: 0.1783 | Val: 0.0816 | Acc: 0.9711 | F1: 0.9557
+08:25:25 [INFO] Epoch  40/200 | Train: 0.1564 | Val: 0.0702 | Acc: 0.9656 | F1: 0.9508
+08:25:32 [INFO] Epoch  50/200 | Train: 0.1389 | Val: 0.0722 | Acc: 0.9711 | F1: 0.9492
+08:25:38 [INFO] Epoch  60/200 | Train: 0.1229 | Val: 0.0730 | Acc: 0.9644 | F1: 0.9457
+08:25:45 [INFO] Epoch  70/200 | Train: 0.1197 | Val: 0.0694 | Acc: 0.9756 | F1: 0.9637
+08:25:46 [INFO] Early stopping at epoch 72
+08:29:16 [INFO]   Fold 2: BIRDNet 0.966 (7114 units, build 83.9s + train 47.8s) | MLP 0.966 (22.5s) | LR 0.967 (186.6s) | RF 0.957 (0.6s) | total 341.7s
+08:29:16 [INFO]   [fold 3] discovering BIRs on training set...
+08:30:39 [INFO]   [fold 3] BIRDNet built: 7070 units, training...
+08:30:45 [INFO] Epoch  10/200 | Train: 0.2399 | Val: 0.1159 | Acc: 0.9544 | F1: 0.9266
+08:30:52 [INFO] Epoch  20/200 | Train: 0.1918 | Val: 0.1084 | Acc: 0.9533 | F1: 0.9418
+08:30:58 [INFO] Epoch  30/200 | Train: 0.1548 | Val: 0.0994 | Acc: 0.9622 | F1: 0.9347
+08:31:05 [INFO] Epoch  40/200 | Train: 0.1565 | Val: 0.0856 | Acc: 0.9689 | F1: 0.9443
+08:31:11 [INFO] Epoch  50/200 | Train: 0.1350 | Val: 0.0809 | Acc: 0.9678 | F1: 0.9425
+08:31:18 [INFO] Epoch  60/200 | Train: 0.1211 | Val: 0.1011 | Acc: 0.9611 | F1: 0.9537
+08:31:24 [INFO] Epoch  70/200 | Train: 0.1238 | Val: 0.0881 | Acc: 0.9644 | F1: 0.9533
+08:31:30 [INFO] Epoch  80/200 | Train: 0.1042 | Val: 0.0836 | Acc: 0.9678 | F1: 0.9464
+08:31:37 [INFO] Epoch  90/200 | Train: 0.1072 | Val: 0.0717 | Acc: 0.9700 | F1: 0.9509
+08:31:43 [INFO] Epoch 100/200 | Train: 0.0981 | Val: 0.0851 | Acc: 0.9678 | F1: 0.9619
+08:31:50 [INFO] Epoch 110/200 | Train: 0.0976 | Val: 0.0745 | Acc: 0.9744 | F1: 0.9669
+08:31:57 [INFO] Epoch 120/200 | Train: 0.0848 | Val: 0.0718 | Acc: 0.9733 | F1: 0.9658
+08:32:04 [INFO] Epoch 130/200 | Train: 0.0803 | Val: 0.0615 | Acc: 0.9767 | F1: 0.9661
+08:32:11 [INFO] Epoch 140/200 | Train: 0.0835 | Val: 0.0542 | Acc: 0.9756 | F1: 0.9551
+08:32:18 [INFO] Epoch 150/200 | Train: 0.0658 | Val: 0.0562 | Acc: 0.9744 | F1: 0.9690
+08:32:24 [INFO] Epoch 160/200 | Train: 0.0737 | Val: 0.0567 | Acc: 0.9767 | F1: 0.9642
+08:32:31 [INFO] Epoch 170/200 | Train: 0.0725 | Val: 0.0546 | Acc: 0.9767 | F1: 0.9675
+08:32:33 [INFO] Early stopping at epoch 173
+08:35:40 [INFO]   Fold 3: BIRDNet 0.973 (7070 units, build 82.3s + train 114.3s) | MLP 0.969 (19.4s) | LR 0.967 (166.8s) | RF 0.958 (0.6s) | total 383.6s
+08:35:40 [INFO]   [fold 4] discovering BIRs on training set...
+08:37:03 [INFO]   [fold 4] BIRDNet built: 7087 units, training...
+08:37:10 [INFO] Epoch  10/200 | Train: 0.2681 | Val: 0.1152 | Acc: 0.9589 | F1: 0.9214
+08:37:17 [INFO] Epoch  20/200 | Train: 0.2181 | Val: 0.1048 | Acc: 0.9589 | F1: 0.9302
+08:37:24 [INFO] Epoch  30/200 | Train: 0.1842 | Val: 0.0948 | Acc: 0.9689 | F1: 0.9352
+08:37:30 [INFO] Epoch  40/200 | Train: 0.1667 | Val: 0.1010 | Acc: 0.9622 | F1: 0.9287
+08:37:37 [INFO] Epoch  50/200 | Train: 0.1739 | Val: 0.0983 | Acc: 0.9656 | F1: 0.9411
+08:37:43 [INFO] Epoch  60/200 | Train: 0.1454 | Val: 0.1107 | Acc: 0.9689 | F1: 0.9405
+08:37:44 [INFO] Early stopping at epoch 62
+08:40:47 [INFO]   Fold 4: BIRDNet 0.959 (7087 units, build 82.9s + train 41.7s) | MLP 0.964 (13.4s) | LR 0.970 (168.3s) | RF 0.952 (0.5s) | total 307.1s
+08:40:47 [INFO]   [fold 5] discovering BIRs on training set...
+08:42:10 [INFO]   [fold 5] BIRDNet built: 7114 units, training...
+08:42:18 [INFO] Epoch  10/200 | Train: 0.2193 | Val: 0.0883 | Acc: 0.9589 | F1: 0.9462
+08:42:25 [INFO] Epoch  20/200 | Train: 0.1915 | Val: 0.0714 | Acc: 0.9678 | F1: 0.9348
+08:42:32 [INFO] Epoch  30/200 | Train: 0.1454 | Val: 0.0723 | Acc: 0.9622 | F1: 0.9544
+08:42:38 [INFO] Epoch  40/200 | Train: 0.1418 | Val: 0.0603 | Acc: 0.9678 | F1: 0.9421
+08:42:45 [INFO] Epoch  50/200 | Train: 0.1214 | Val: 0.0577 | Acc: 0.9711 | F1: 0.9433
+08:42:52 [INFO] Epoch  60/200 | Train: 0.1161 | Val: 0.0620 | Acc: 0.9711 | F1: 0.9481
+08:42:58 [INFO] Early stopping at epoch 68
+08:45:37 [INFO]   Fold 5: BIRDNet 0.973 (7114 units, build 83.4s + train 47.6s) | MLP 0.965 (14.3s) | LR 0.965 (143.7s) | RF 0.962 (0.5s) | total 289.9s
+08:45:37 [INFO] 
+========================================================================
+08:45:37 [INFO] RESULTS: tcga_rppa: TCGA pan-cancer RPPA (Akbani et al., 2014)
+08:45:37 [INFO] ========================================================================
+08:45:37 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+08:45:37 [INFO] ------------------------------------------------------------------------
+08:45:37 [INFO] BIRDNet         0.9663 +/- 0.0060 0.9464 +/- 0.0109 0.9991 +/- 0.0002        142.7
+08:45:37 [INFO] MLP             0.9644 +/- 0.0037 0.9416 +/- 0.0052 0.9988 +/- 0.0002         17.7
+08:45:37 [INFO] LogReg_L1       0.9668 +/- 0.0019 0.9526 +/- 0.0035 0.9989 +/- 0.0001        160.1
+08:45:37 [INFO] RandomForest    0.9561 +/- 0.0038 0.9263 +/- 0.0041 0.9986 +/- 0.0002          0.5
+08:45:37 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+08:45:37 [INFO]          binarize: 73.08s (min 72.34, max 74.00)
+08:45:37 [INFO]     bir_discovery: 8.45s (min 7.56, max 8.82)
+08:45:37 [INFO]            select: 0.72s (min 0.70, max 0.74)
+08:45:37 [INFO]           forward: 0.09s (min 0.06, max 0.24)
+08:45:37 [INFO]       build_total: 82.91s (min 82.05, max 83.90)
+08:45:37 [INFO]             train: 59.76s (min 41.66, max 114.28)
+08:45:37 [INFO]         BIR units: mean 7095, range 7070-7114
+08:45:37 [INFO] 
+Parameter counts (mean over folds):
+08:45:37 [INFO]        BIRDNet active (BIR layers): 21,285
+08:45:37 [INFO]       BIRDNet nominal (BIR layers): 11,022,605
+08:45:37 [INFO]            Classifier head (dense): 336,009
+08:45:37 [INFO]               BIRDNet total active: 357,294
+08:45:37 [INFO]              BIRDNet total nominal: 11,358,614
+08:45:37 [INFO]                   MatchedMLP total: 11,358,614
+08:45:37 [INFO]                 BIR-layer sparsity: 0.9981 (0.19% active)
+08:45:37 [INFO]                     Total sparsity: 0.9685 (3.15% active)
+08:45:37 [INFO]                  MLP/BIRDNet ratio: 31.8x
+08:45:37 [INFO] 
+--- Final Model for Explainability (80/20 split, seed=42) ---
+08:45:37 [INFO]   [fold final] discovering BIRs on training set...
+08:47:24 [INFO]   [fold final] BIRDNet built: 7235 units, training...
+08:47:33 [INFO] Epoch  10/200 | Train: 0.2280 | Val: 0.0966 | Acc: 0.9647 | F1: 0.9326
+08:47:41 [INFO] Epoch  20/200 | Train: 0.1824 | Val: 0.0874 | Acc: 0.9687 | F1: 0.9426
+08:47:49 [INFO] Epoch  30/200 | Train: 0.1619 | Val: 0.0889 | Acc: 0.9667 | F1: 0.9457
+08:47:58 [INFO] Epoch  40/200 | Train: 0.1571 | Val: 0.0747 | Acc: 0.9727 | F1: 0.9561
+08:48:06 [INFO] Epoch  50/200 | Train: 0.1378 | Val: 0.0793 | Acc: 0.9713 | F1: 0.9539
+08:48:14 [INFO] Epoch  60/200 | Train: 0.1331 | Val: 0.0860 | Acc: 0.9707 | F1: 0.9540
+08:48:14 [INFO] Early stopping at epoch 60
+08:48:14 [INFO]   Final model: Acc=0.9727, F1=0.9561
+08:48:14 [INFO] 
+--- Per-Class Decision Rules (DRM-style propositionalisation) ---
+08:49:10 [INFO] 
+Class: BLCA
+------------------------------------------------------------
+  R1. IF BIR_High->Low(CDK1, ERALPHA_pS118) fires
+        THEN class=BLCA  (precision=0.256, recall=0.580, lift=5.57, support=0.104)
+  R2. IF BIR_High->High(SRC, SLC1A5) fires
+        THEN class=BLCA  (precision=0.222, recall=0.594, lift=4.82, support=0.123)
+  R3. IF BIR_High->Low(EGFR, ERALPHA_pS118) fires
+        THEN class=BLCA  (precision=0.204, recall=0.667, lift=4.44, support=0.150)
+  R4. IF BIR_High->Low(SRC, PARP1) fires
+        THEN class=BLCA  (precision=0.202, recall=0.580, lift=4.39, support=0.132)
+  R5. IF BIR_High->High(GATA3, EIF4G) fires
+        THEN class=BLCA  (precision=0.197, recall=0.536, lift=4.28, support=0.125)
+
+Class: BRCA
+------------------------------------------------------------
+  R1. IF BIR_High->Low(GATA3, PKCDELTA_pS664) fires
+        THEN class=BRCA  (precision=0.839, recall=0.739, lift=7.15, support=0.103)
+  R2. IF BIR_High->Low(GATA3, PDL1) fires
+        THEN class=BRCA  (precision=0.765, recall=0.722, lift=6.52, support=0.111)
+  R3. IF BIR_High->Low(GATA3, NDRG1_pT346) fires
+        THEN class=BRCA  (precision=0.762, recall=0.727, lift=6.49, support=0.112)
+  R4. IF BIR_High->Low(GATA3, PKCALPHA) fires
+        THEN class=BRCA  (precision=0.758, recall=0.818, lift=6.46, support=0.127)
+  R5. IF BIR_High->Low(GATA3, MYH11) fires
+        THEN class=BRCA  (precision=0.731, recall=0.665, lift=6.23, support=0.107)
+
+Class: CESC
+------------------------------------------------------------
+  R1. IF BIR_High->Low(CHK2_pT68, GATA3) fires
+        THEN class=CESC  (precision=0.151, recall=0.824, lift=6.68, support=0.123)
+  R2. IF BIR_High->Low(RAD51, RAB11) fires
+        THEN class=CESC  (precision=0.145, recall=0.824, lift=6.40, support=0.129)
+  R3. IF BIR_High->Low(CHK2_pT68, PKCDELTA_pS664) fires
+        THEN class=CESC  (precision=0.141, recall=0.735, lift=6.23, support=0.118)
+  R4. IF BIR_High->Low(RAD51, CD26) fires
+        THEN class=CESC  (precision=0.140, recall=0.676, lift=6.19, support=0.109)
+  R5. IF BIR_High->High(RAD51, ENY2) fires
+        THEN class=CESC  (precision=0.135, recall=0.647, lift=5.95, support=0.109)
+
+Class: COAD
+------------------------------------------------------------
+  R1. IF BIR_High->High(TIGAR, GCN5L2) fires
+        THEN class=COAD  (precision=0.375, recall=0.676, lift=7.92, support=0.085)
+  R2. IF BIR_High->High(TIGAR, SLC1A5) fires
+        THEN class=COAD  (precision=0.364, recall=0.718, lift=7.70, support=0.093)
+  R3. IF BIR_High->Low(TIGAR, PREX1) fires
+        THEN class=COAD  (precision=0.333, recall=0.577, lift=7.04, support=0.082)
+  R4. IF BIR_Low->High(RB_pS807S811, SLC1A5) fires
+        THEN class=COAD  (precision=0.331, recall=0.577, lift=6.99, support=0.083)
+  R5. IF BIR_High->High(CD49B, SLC1A5) fires
+        THEN class=COAD  (precision=0.317, recall=0.620, lift=6.69, support=0.093)
+
+Class: ESCA
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(AR, GATA3) fires
+        THEN class=ESCA  (precision=0.195, recall=0.920, lift=11.69, support=0.079)
+  R2. IF BIR_Low->Low(CHK1, PEA15) fires
+        THEN class=ESCA  (precision=0.110, recall=0.760, lift=6.63, support=0.115)
+  R3. IF BIR_Low->Low(CHK1, ERK2) fires
+        THEN class=ESCA  (precision=0.109, recall=0.600, lift=6.57, support=0.091)
+  R4. IF BIR_High->Low(MRE11, MYH11) fires
+        THEN class=ESCA  (precision=0.109, recall=0.760, lift=6.55, support=0.116)
+  R5. IF BIR_High->Low(XBP1, SMAC) fires
+        THEN class=ESCA  (precision=0.100, recall=0.800, lift=5.97, support=0.134)
+
+Class: GBM
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(GCN5L2, MYOSINIIA) fires
+        THEN class=GBM  (precision=0.526, recall=0.976, lift=18.77, support=0.052)
+  R2. IF BIR_Low->Low(MYOSINIIA, SLC1A5) fires
+        THEN class=GBM  (precision=0.500, recall=0.952, lift=17.86, support=0.053)
+  R3. IF BIR_High->High(EGFR, AXL) fires
+        THEN class=GBM  (precision=0.375, recall=0.714, lift=13.39, support=0.053)
+  R4. IF BIR_Low->Low(GCN5L2, SLC1A5) fires
+        THEN class=GBM  (precision=0.374, recall=0.952, lift=13.35, support=0.071)
+  R5. IF BIR_Low->Low(MYOSINIIA, IRF1) fires
+        THEN class=GBM  (precision=0.346, recall=0.881, lift=12.35, support=0.071)
+
+Class: HNSC
+------------------------------------------------------------
+  R1. IF BIR_High->Low(HER2_pY1248, RICTOR) fires
+        THEN class=HNSC  (precision=0.349, recall=0.768, lift=7.58, support=0.101)
+  R2. IF BIR_High->Low(HER2_pY1248, MYH11) fires
+        THEN class=HNSC  (precision=0.306, recall=0.768, lift=6.66, support=0.115)
+  R3. IF BIR_High->Low(HER2_pY1248, P70S6K_pT389) fires
+        THEN class=HNSC  (precision=0.300, recall=0.884, lift=6.53, support=0.135)
+  R4. IF BIR_High->High(HER2_pY1248, YAP) fires
+        THEN class=HNSC  (precision=0.298, recall=0.899, lift=6.48, support=0.139)
+  R5. IF BIR_High->Low(HER2_pY1248, X1433BETA) fires
+        THEN class=HNSC  (precision=0.291, recall=0.754, lift=6.32, support=0.119)
+
+Class: KICH
+------------------------------------------------------------
+  R1. IF BIR_High->Low(PKCDELTA_pS664, PARP1) fires
+        THEN class=KICH  (precision=0.158, recall=0.923, lift=18.22, support=0.051)
+  R2. IF BIR_Low->Low(MSH6, PARP1) fires
+        THEN class=KICH  (precision=0.135, recall=0.923, lift=15.56, support=0.059)
+  R3. IF BIR_Low->Low(CYCLINE1, PARP1) fires
+        THEN class=KICH  (precision=0.133, recall=0.769, lift=15.38, support=0.050)
+  R4. IF BIR_Low->Low(RAPTOR, PARP1) fires
+        THEN class=KICH  (precision=0.110, recall=1.000, lift=12.71, support=0.079)
+  R5. IF BIR_High->Low(X1433EPSILON, MSH6) fires
+        THEN class=KICH  (precision=0.105, recall=0.923, lift=12.15, support=0.076)
+
+Class: KIRC
+------------------------------------------------------------
+  R1. IF BIR_High->Low(MIG6, GATA6) fires
+        THEN class=KIRC  (precision=0.500, recall=0.843, lift=8.43, support=0.100)
+  R2. IF BIR_High->Low(MIG6, P16INK4A) fires
+        THEN class=KIRC  (precision=0.458, recall=0.854, lift=7.72, support=0.111)
+  R3. IF BIR_High->Low(NDRG1_pT346, GATA6) fires
+        THEN class=KIRC  (precision=0.429, recall=0.876, lift=7.22, support=0.121)
+  R4. IF BIR_High->Low(MIG6, PEA15) fires
+        THEN class=KIRC  (precision=0.415, recall=0.764, lift=6.99, support=0.109)
+  R5. IF BIR_High->Low(EGFR_pY1068, FASN) fires
+        THEN class=KIRC  (precision=0.414, recall=0.809, lift=6.97, support=0.116)
+
+Class: KIRP
+------------------------------------------------------------
+  R1. IF BIR_High->Low(X1433EPSILON, MSH6) fires
+        THEN class=KIRP  (precision=0.228, recall=0.619, lift=8.15, support=0.076)
+  R2. IF BIR_High->Low(CD26, PARP1) fires
+        THEN class=KIRP  (precision=0.196, recall=0.738, lift=7.01, support=0.105)
+  R3. IF BIR_High->Low(X1433EPSILON, RICTOR) fires
+        THEN class=KIRP  (precision=0.191, recall=0.738, lift=6.83, support=0.108)
+  R4. IF BIR_High->Low(ARAF_pS299, RICTOR) fires
+        THEN class=KIRP  (precision=0.189, recall=0.952, lift=6.74, support=0.141)
+  R5. IF BIR_High->Low(X1433EPSILON, CASPASE7CLEAVEDD198) fires
+        THEN class=KIRP  (precision=0.186, recall=0.857, lift=6.63, support=0.129)
+
+Class: LGG
+------------------------------------------------------------
+  R1. IF BIR_High->Low(ERK2, HSP70) fires
+        THEN class=LGG  (precision=0.948, recall=0.849, lift=16.54, support=0.051)
+  R2. IF BIR_High->Low(ERK2, ANNEXIN1) fires
+        THEN class=LGG  (precision=0.916, recall=0.884, lift=15.97, support=0.055)
+  R3. IF BIR_High->High(ERK2, PEA15) fires
+        THEN class=LGG  (precision=0.878, recall=0.919, lift=15.31, support=0.060)
+  R4. IF BIR_High->High(ERK2, PKCALPHA_pS657) fires
+        THEN class=LGG  (precision=0.868, recall=0.919, lift=15.14, support=0.061)
+  R5. IF BIR_High->Low(PEA15, ANNEXIN1) fires
+        THEN class=LGG  (precision=0.868, recall=0.919, lift=15.14, support=0.061)
+
+Class: LIHC
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(RAPTOR, PARP1) fires
+        THEN class=LIHC  (precision=0.212, recall=0.676, lift=8.59, support=0.079)
+  R2. IF BIR_High->Low(SCD1, PARP1) fires
+        THEN class=LIHC  (precision=0.211, recall=0.919, lift=8.56, support=0.107)
+  R3. IF BIR_High->Low(SNAIL, PARP1) fires
+        THEN class=LIHC  (precision=0.196, recall=0.865, lift=7.96, support=0.109)
+  R4. IF BIR_Low->Low(X1433ZETA, PARP1) fires
+        THEN class=LIHC  (precision=0.188, recall=0.757, lift=7.62, support=0.099)
+  R5. IF BIR_High->Low(XBP1, X1433ZETA) fires
+        THEN class=LIHC  (precision=0.178, recall=0.865, lift=7.21, support=0.120)
+
+Class: LUAD
+------------------------------------------------------------
+  R1. IF BIR_High->Low(HER2_pY1248, PEA15_pS116) fires
+        THEN class=LUAD  (precision=0.301, recall=0.819, lift=6.27, support=0.131)
+  R2. IF BIR_Low->Low(PI3KP110ALPHA, PREX1) fires
+        THEN class=LUAD  (precision=0.260, recall=0.806, lift=5.42, support=0.149)
+  R3. IF BIR_High->High(HER2_pY1248, YAP_pS127) fires
+        THEN class=LUAD  (precision=0.241, recall=0.708, lift=5.01, support=0.141)
+  R4. IF BIR_High->High(HER2_pY1248, YAP) fires
+        THEN class=LUAD  (precision=0.240, recall=0.694, lift=5.01, support=0.139)
+  R5. IF BIR_High->Low(HER2_pY1248, PI3KP110ALPHA) fires
+        THEN class=LUAD  (precision=0.234, recall=0.903, lift=4.87, support=0.185)
+
+Class: LUSC
+------------------------------------------------------------
+  R1. IF BIR_High->Low(HER2_pY1248, PEA15_pS116) fires
+        THEN class=LUSC  (precision=0.265, recall=0.800, lift=6.12, support=0.131)
+  R2. IF BIR_High->Low(HER2_pY1248, ACVRL1) fires
+        THEN class=LUSC  (precision=0.253, recall=0.877, lift=5.85, support=0.150)
+  R3. IF BIR_High->Low(HER2_pY1248, P70S6K_pT389) fires
+        THEN class=LUSC  (precision=0.232, recall=0.723, lift=5.34, support=0.135)
+  R4. IF BIR_High->Low(HER2_pY1248, SCD1) fires
+        THEN class=LUSC  (precision=0.221, recall=0.846, lift=5.10, support=0.166)
+  R5. IF BIR_Low->Low(P27_pT157, PARP1) fires
+        THEN class=LUSC  (precision=0.220, recall=0.862, lift=5.09, support=0.169)
+
+Class: MESO
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(CYCLINE1, PARP1) fires
+        THEN class=MESO  (precision=0.160, recall=1.000, lift=20.00, support=0.050)
+  R2. IF BIR_High->Low(PKCDELTA_pS664, PARP1) fires
+        THEN class=MESO  (precision=0.158, recall=1.000, lift=19.74, support=0.051)
+  R3. IF BIR_Low->Low(MSH6, PARP1) fires
+        THEN class=MESO  (precision=0.135, recall=1.000, lift=16.85, support=0.059)
+  R4. IF BIR_High->Low(LKB1, PARP1) fires
+        THEN class=MESO  (precision=0.121, recall=1.000, lift=15.15, support=0.066)
+  R5. IF BIR_High->Low(MEK1, PARP1) fires
+        THEN class=MESO  (precision=0.105, recall=0.917, lift=13.10, support=0.070)
+
+Class: OV
+------------------------------------------------------------
+  R1. IF BIR_High->High(CLAUDIN7, ENY2) fires
+        THEN class=OV  (precision=0.356, recall=0.566, lift=6.43, support=0.088)
+  R2. IF BIR_High->High(CYCLINB1, ENY2) fires
+        THEN class=OV  (precision=0.354, recall=0.627, lift=6.39, support=0.098)
+  R3. IF BIR_Low->High(GSK3_pS9, ENY2) fires
+        THEN class=OV  (precision=0.348, recall=0.590, lift=6.28, support=0.094)
+  R4. IF BIR_High->High(CYCLINE1, ENY2) fires
+        THEN class=OV  (precision=0.339, recall=0.711, lift=6.13, support=0.116)
+  R5. IF BIR_High->Low(CYCLINE1, HER3_pY1289) fires
+        THEN class=OV  (precision=0.316, recall=0.735, lift=5.71, support=0.129)
+
+Class: PAAD
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(CYCLINE1, PARP1) fires
+        THEN class=PAAD  (precision=0.120, recall=0.429, lift=8.57, support=0.050)
+  R2. IF BIR_High->Low(PAI1, PARP1) fires
+        THEN class=PAAD  (precision=0.084, recall=0.524, lift=6.00, support=0.087)
+  R3. IF BIR_Low->Low(MTOR, PARP1) fires
+        THEN class=PAAD  (precision=0.083, recall=0.524, lift=5.95, support=0.088)
+  R4. IF BIR_High->High(MRE11, IGF1R_pY1135Y1136) fires
+        THEN class=PAAD  (precision=0.083, recall=0.810, lift=5.89, support=0.137)
+  R5. IF BIR_Low->Low(MSH6, PARP1) fires
+        THEN class=PAAD  (precision=0.079, recall=0.333, lift=5.62, support=0.059)
+
+Class: PCPG
+------------------------------------------------------------
+  R1. IF BIR_High->Low(X1433EPSILON, MSH6) fires
+        THEN class=PCPG  (precision=0.140, recall=1.000, lift=13.16, support=0.076)
+  R2. IF BIR_Low->Low(CHK1, ERK2) fires
+        THEN class=PCPG  (precision=0.117, recall=1.000, lift=10.95, support=0.091)
+  R3. IF BIR_High->Low(ACETYLATUBULINLYS40, ANNEXIN1) fires
+        THEN class=PCPG  (precision=0.113, recall=0.875, lift=10.58, support=0.083)
+  R4. IF BIR_High->Low(X1433EPSILON, RICTOR) fires
+        THEN class=PCPG  (precision=0.099, recall=1.000, lift=9.26, support=0.108)
+  R5. IF BIR_Low->Low(CHK1, PEA15) fires
+        THEN class=PCPG  (precision=0.093, recall=1.000, lift=8.72, support=0.115)
+
+Class: PRAD
+------------------------------------------------------------
+  R1. IF BIR_High->Low(MYH11, MSH2) fires
+        THEN class=PRAD  (precision=0.493, recall=0.971, lift=10.56, support=0.092)
+  R2. IF BIR_High->Low(MYH11, MSH6) fires
+        THEN class=PRAD  (precision=0.439, recall=0.971, lift=9.40, support=0.103)
+  R3. IF BIR_High->High(MYH11, EPPK1) fires
+        THEN class=PRAD  (precision=0.438, recall=1.000, lift=9.38, support=0.107)
+  R4. IF BIR_High->Low(MYH11, DUSP4) fires
+        THEN class=PRAD  (precision=0.435, recall=1.000, lift=9.32, support=0.107)
+  R5. IF BIR_High->Low(AR, PCNA) fires
+        THEN class=PRAD  (precision=0.407, recall=1.000, lift=8.72, support=0.115)
+
+Class: READ
+------------------------------------------------------------
+  R1. IF BIR_High->High(TIGAR, SLC1A5) fires
+        THEN class=READ  (precision=0.164, recall=0.885, lift=9.48, support=0.093)
+  R2. IF BIR_Low->High(RB_pS807S811, SLC1A5) fires
+        THEN class=READ  (precision=0.137, recall=0.654, lift=7.91, support=0.083)
+  R3. IF BIR_High->High(CD49B, SLC1A5) fires
+        THEN class=READ  (precision=0.129, recall=0.692, lift=7.47, support=0.093)
+  R4. IF BIR_High->High(HEREGULIN, SLC1A5) fires
+        THEN class=READ  (precision=0.124, recall=0.692, lift=7.16, support=0.097)
+  R5. IF BIR_Low->High(HSP70, SLC1A5) fires
+        THEN class=READ  (precision=0.118, recall=0.692, lift=6.83, support=0.101)
+
+Class: SARC
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(CHK1, ERK2) fires
+        THEN class=SARC  (precision=0.255, recall=0.778, lift=8.52, support=0.091)
+  R2. IF BIR_High->Low(MRE11, MYH11) fires
+        THEN class=SARC  (precision=0.253, recall=0.978, lift=8.43, support=0.116)
+  R3. IF BIR_High->Low(CHK2_pT68, GATA3) fires
+        THEN class=SARC  (precision=0.232, recall=0.956, lift=7.75, support=0.123)
+  R4. IF BIR_Low->Low(CHK1, PEA15) fires
+        THEN class=SARC  (precision=0.209, recall=0.800, lift=6.98, support=0.115)
+  R5. IF BIR_High->Low(MRE11, PKCDELTA_pS664) fires
+        THEN class=SARC  (precision=0.209, recall=0.800, lift=6.98, support=0.115)
+
+Class: SKCM
+------------------------------------------------------------
+  R1. IF BIR_High->Low(AKT, TIGAR) fires
+        THEN class=SKCM  (precision=0.299, recall=0.732, lift=6.31, support=0.116)
+  R2. IF BIR_High->Low(ERK2, EPPK1) fires
+        THEN class=SKCM  (precision=0.224, recall=0.873, lift=4.73, support=0.185)
+  R3. IF BIR_Low->Low(EPPK1, CD26) fires
+        THEN class=SKCM  (precision=0.208, recall=0.887, lift=4.39, support=0.202)
+  R4. IF BIR_High->Low(PEA15, EPPK1) fires
+        THEN class=SKCM  (precision=0.206, recall=0.901, lift=4.35, support=0.207)
+  R5. IF BIR_High->Low(PKCDELTA_pS664, EPPK1) fires
+        THEN class=SKCM  (precision=0.203, recall=0.859, lift=4.30, support=0.200)
+
+Class: STAD
+------------------------------------------------------------
+  R1. IF BIR_High->Low(TIGAR, SHP2_pY542) fires
+        THEN class=STAD  (precision=0.339, recall=0.606, lift=7.15, support=0.085)
+  R2. IF BIR_High->Low(MYH11, MSH2) fires
+        THEN class=STAD  (precision=0.304, recall=0.592, lift=6.43, support=0.092)
+  R3. IF BIR_High->High(TIGAR, ERCC1) fires
+        THEN class=STAD  (precision=0.302, recall=0.366, lift=6.39, support=0.057)
+  R4. IF BIR_High->High(MYH11, EPPK1) fires
+        THEN class=STAD  (precision=0.300, recall=0.676, lift=6.34, support=0.107)
+  R5. IF BIR_High->Low(TIGAR, JAB1) fires
+        THEN class=STAD  (precision=0.289, recall=0.577, lift=6.10, support=0.095)
+
+Class: TGCT
+------------------------------------------------------------
+  R1. IF BIR_High->High(PKCDELTA_pS664, RAD51) fires
+        THEN class=TGCT  (precision=0.131, recall=0.952, lift=9.34, support=0.102)
+  R2. IF BIR_High->Low(MSH6, CD26) fires
+        THEN class=TGCT  (precision=0.112, recall=0.905, lift=7.98, support=0.113)
+  R3. IF BIR_High->Low(RAD51, RAB11) fires
+        THEN class=TGCT  (precision=0.109, recall=1.000, lift=7.77, support=0.129)
+  R4. IF BIR_High->Low(CHK2_pT68, ERK2) fires
+        THEN class=TGCT  (precision=0.106, recall=0.810, lift=7.54, support=0.107)
+  R5. IF BIR_High->Low(CHK2_pT68, EGFR_pY1068) fires
+        THEN class=TGCT  (precision=0.106, recall=1.000, lift=7.54, support=0.133)
+
+Class: THCA
+------------------------------------------------------------
+  R1. IF BIR_High->Low(TIGAR, TSC1) fires
+        THEN class=THCA  (precision=0.450, recall=0.480, lift=9.00, support=0.053)
+  R2. IF BIR_High->High(TIGAR, ERCC1) fires
+        THEN class=THCA  (precision=0.419, recall=0.480, lift=8.37, support=0.057)
+  R3. IF BIR_High->Low(TIGAR, MSH6) fires
+        THEN class=THCA  (precision=0.411, recall=0.493, lift=8.22, support=0.060)
+  R4. IF BIR_High->Low(TIGAR, CASPASE8) fires
+        THEN class=THCA  (precision=0.346, recall=0.493, lift=6.92, support=0.071)
+  R5. IF BIR_High->Low(TIGAR, SHP2_pY542) fires
+        THEN class=THCA  (precision=0.339, recall=0.573, lift=6.77, support=0.085)
+
+Class: THYM
+------------------------------------------------------------
+  R1. IF BIR_High->High(PKCDELTA_pS664, SMAD1) fires
+        THEN class=THYM  (precision=0.122, recall=0.833, lift=10.16, support=0.082)
+  R2. IF BIR_High->Low(PKCDELTA_pS664, TAZ) fires
+        THEN class=THYM  (precision=0.087, recall=0.611, lift=7.28, support=0.084)
+  R3. IF BIR_High->Low(PKCDELTA_pS664, MYH11) fires
+        THEN class=THYM  (precision=0.085, recall=0.611, lift=7.05, support=0.087)
+  R4. IF BIR_High->Low(PI3KP110ALPHA, TIGAR) fires
+        THEN class=THYM  (precision=0.080, recall=0.333, lift=6.67, support=0.050)
+  R5. IF BIR_High->High(PKCDELTA_pS664, TUBERIN) fires
+        THEN class=THYM  (precision=0.078, recall=0.889, lift=6.54, support=0.136)
+
+Class: UCEC
+------------------------------------------------------------
+  R1. IF BIR_High->Low(ERALPHA_pS118, P70S6K_pT389) fires
+        THEN class=UCEC  (precision=0.342, recall=0.617, lift=6.34, support=0.097)
+  R2. IF BIR_High->High(ERALPHA_pS118, BAP1C4) fires
+        THEN class=UCEC  (precision=0.319, recall=0.543, lift=5.90, support=0.092)
+  R3. IF BIR_High->Low(ERALPHA_pS118, ERK2) fires
+        THEN class=UCEC  (precision=0.314, recall=0.531, lift=5.81, support=0.091)
+  R4. IF BIR_High->High(ERALPHA_pS118, BRD4) fires
+        THEN class=UCEC  (precision=0.303, recall=0.543, lift=5.62, support=0.097)
+  R5. IF BIR_High->Low(ERALPHA_pS118, HER2_pY1248) fires
+        THEN class=UCEC  (precision=0.300, recall=0.630, lift=5.56, support=0.113)
+08:49:10 [INFO] 
+--- Per-Instance Explanation (DRM-style, test sample 0) ---
+08:49:10 [INFO]   Predicted: BRCA  (true: BRCA)
+08:49:10 [INFO]   Probabilities: BLCA=0.000, BRCA=1.000, CESC=0.000, COAD=0.000, ESCA=0.000, GBM=0.000, HNSC=0.000, KICH=0.000, KIRC=0.000, KIRP=0.000, LGG=0.000, LIHC=0.000, LUAD=0.000, LUSC=0.000, MESO=0.000, OV=0.000, PAAD=0.000, PCPG=0.000, PRAD=0.000, READ=0.000, SARC=0.000, SKCM=0.000, STAD=0.000, TGCT=0.000, THCA=0.000, THYM=0.000, UCEC=0.000
+08:49:10 [INFO]   Rules fired: 1136/2235
+08:49:10 [INFO]   Top 5 contributing rules:
+08:49:10 [INFO]     [FIRED] BIR_High->Low(GATA3, ETS1) fires                              act=3.349  contrib=11.835
+08:49:10 [INFO]     [FIRED] BIR_High->High(GATA3, BRD4) fires                             act=2.946  contrib=10.775
+08:49:10 [INFO]     [FIRED] BIR_High->Low(GATA3, LCK) fires                               act=3.354  contrib=10.112
+08:49:10 [INFO]     [FIRED] BIR_High->Low(GATA3, XBP1) fires                              act=3.412  contrib=10.075
+08:49:10 [INFO]     [FIRED] BIR_High->High(GATA3, XRCC1) fires                            act=2.899  contrib=10.040
+08:49:10 [INFO] 
+--- Per-Instance LRP Explanation Tree (test sample 0) ---
+08:49:10 [INFO]   Target class: BRCA (true: BRCA)
+08:49:10 [INFO] - Predicted class: BRCA  [R=+29.4136  val=29.414]
+  - dense_0[31]  [R=+3.1247  contrib=+3.1247]
+    - BIR_High->High(feat_613, feat_1826)  [R=-0.0526  contrib=-0.1033]
+      - BIR_High->High(GATA3, BRAF_pS445)  [R=-0.0440  contrib=-0.0440]
+        - input: BRAF_pS445  [R=-0.0277  contrib=-0.0277  val=1.292]
+        - input: GATA3  [R=+1.2003  contrib=-0.0124  val=4.061]
+      - BIR_High->High(GATA3, PDK1_pS241)  [R=-0.0624  contrib=-0.0157]
+        - input: PDK1_pS241  [R=-0.0301  contrib=-0.0301  val=1.685]
+        - input: GATA3  [R=+1.2003  contrib=-0.0287  val=4.061]
+    - BIR_High->Low(feat_348, feat_553)  [R=+0.2566  contrib=-0.0709]
+      - BIR_High->Low(BCL2, PAI1)  [R=+0.4622  contrib=+0.2515]
+        - input: BCL2  [R=+1.8933  contrib=+0.3843  val=2.494]
+        - input: PAI1  [R=-0.0302  contrib=+0.0353  val=-0.352]
+  - dense_0[1]  [R=+2.8242  contrib=+2.8242]
+    - BIR_High->High(feat_1861, feat_1959)  [R=+0.4572  contrib=-0.0948]
+      - BIR_Low->High(AKT_pS473, MYOSINIIA)  [R=+0.2558  contrib=+0.2558]
+        - input: MYOSINIIA  [R=+1.0569  contrib=+0.2930  val=2.393]
+        - input: AKT_pS473  [R=-0.0341  contrib=-0.0038  val=-1.141]
+      - BIR_Low->High(AKT_pT308, MYOSINIIA)  [R=+0.2223  contrib=+0.2223]
+        - input: MYOSINIIA  [R=+1.0569  contrib=+0.2358  val=2.393]
+        - input: AKT_pT308  [R=-0.8214  contrib=+0.0088  val=-1.046]
+    - BIR_High->High(feat_1348, feat_1422)  [R=+0.0825  contrib=+0.0900]
+      - BIR_High->Low(GATA3, PKCDELTA_pS664)  [R=+0.4868  contrib=+0.0579]
+        - input: GATA3  [R=+1.2003  contrib=+0.4082  val=4.061]
+        - input: PKCDELTA_pS664  [R=+0.9368  contrib=+0.0995  val=-0.858]
+      - BIR_High->Low(GATA3, P70S6K_pT389)  [R=+0.0259  contrib=+0.0324]
+        - input: GATA3  [R=+1.2003  contrib=+0.0205  val=4.061]
+        - input: P70S6K_pT389  [R=+0.5776  contrib=+0.0062  val=-0.788]
+08:49:10 [INFO] 
+  Note: tree truncated at depth 4. Full tree available via tree_to_dict() for offline analysis.

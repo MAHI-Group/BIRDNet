@@ -1,0 +1,3455 @@
+.
+├── baselines.py
+├── bir.py
+├── data
+│   ├── GSE39582
+│   │   └── GSE39582_series_matrix.txt.gz
+│   ├── METABRIC
+│   │   ├── data_clinical_patient.txt
+│   │   ├── data_clinical_sample.txt
+│   │   └── data_mrna_illumina_microarray.txt
+│   ├── TCGA_RNAseq
+│   │   ├── gencode_v23_genemap.tsv
+│   │   ├── tcga_rsem_gene_tpm.tsv.gz
+│   │   └── TcgaTargetGTEX_phenotype.txt.gz
+│   ├── TCGA_RPPA
+│   │   ├── tcga_pheno.tsv
+│   │   └── tcga_rppa.tsv.gz
+│   ├── UCI342
+│   │   ├── Data_Cortex_Nuclear.xls
+│   │   └── uci342.zip
+│   └── UCI401
+│       ├── TCGA-PANCAN-HiSeq-801x20531
+│       │   ├── data.csv
+│       │   └── labels.csv
+│       ├── TCGA-PANCAN-HiSeq-801x20531.tar.gz
+│       └── uci401.zip
+├── data_loaders
+│   ├── _common.py
+│   ├── _geo_utils.py
+│   ├── gse39582.py
+│   ├── gse72056.py
+│   ├── gse78220.py
+│   ├── gse91061.py
+│   ├── __init__.py
+│   ├── metabric.py
+│   ├── __pycache__
+│   │   ├── _common.cpython-313.pyc
+│   │   ├── _geo_utils.cpython-313.pyc
+│   │   ├── gse39582.cpython-313.pyc
+│   │   ├── gse72056.cpython-313.pyc
+│   │   ├── gse78220.cpython-313.pyc
+│   │   ├── gse91061.cpython-313.pyc
+│   │   ├── __init__.cpython-313.pyc
+│   │   ├── metabric.cpython-313.pyc
+│   │   ├── _series_matrix.cpython-313.pyc
+│   │   ├── tcga_rnaseq.cpython-313.pyc
+│   │   ├── tcga_rppa.cpython-313.pyc
+│   │   ├── uci_gene_expression.cpython-313.pyc
+│   │   └── uci_mice_protein.cpython-313.pyc
+│   ├── _series_matrix.py
+│   ├── tcga_rnaseq.py
+│   ├── tcga_rppa.py
+│   ├── uci_gene_expression.py
+│   └── uci_mice_protein.py
+├── demo.py
+├── experiment_io.py
+├── explain.py
+├── figures
+│   ├── fig1a_bir_quadrants.pdf
+│   ├── fig1a_bir_quadrants.pdf.png
+│   └── meth.pdf
+├── gen_summary.sh
+├── load_run.py
+├── logs
+│   ├── all_runs_final.log
+│   ├── dir_tree.log
+│   ├── gse39582.log
+│   ├── metabric.log
+│   ├── paper_lrp_metabric.txt
+│   ├── paper_rules_metabric.txt
+│   ├── paper_rules_tcga.txt
+│   ├── paper_summary.txt
+│   ├── tcga_rnaseq.log
+│   ├── tcga_rppa.log
+│   ├── uci_gene_expression.log
+│   └── uci_mice_protein.log
+├── lrp.py
+├── model.py
+├── __pycache__
+│   ├── baselines.cpython-313.pyc
+│   ├── bir.cpython-313.pyc
+│   ├── experiment_io.cpython-313.pyc
+│   ├── load_run.cpython-310.pyc
+│   ├── load_run.cpython-313.pyc
+│   ├── lrp.cpython-313.pyc
+│   ├── model.cpython-313.pyc
+│   ├── rules.cpython-313.pyc
+│   └── train.cpython-313.pyc
+├── README.md
+├── rules.py
+├── run_all.sh
+├── run_experiments.py
+├── run.sh
+├── saved_models
+│   ├── BIRDNet
+│   │   ├── 20260430_071743_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_072147_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_073338_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_074513_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260430_074517_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_075735_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_075841_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_080702_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_081317_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260504_170512_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260504_174806_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_003808_tcga_rnaseq
+│   │   │   ├── config.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_013140_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260505_013839_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_020704_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_020806_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_022214_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_023322_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_030825_tcga_rnaseq
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_072923_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073437_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073543_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074158_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074244_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074742_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074850_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075355_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075438_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075842_metabric
+│   │   │   ├── config.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_081837_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_084912_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_085031_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_090532_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_091734_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── final_8020
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── bir_stats.json
+│   │   │   │   ├── history.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   └── 20260511_095440_tcga_rnaseq
+│   │       ├── config.json
+│   │       ├── cv_summary.json
+│   │       ├── final_8020
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_0
+│   │       │   ├── architecture.json
+│   │       │   ├── bir_stats.json
+│   │       │   ├── history.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_1
+│   │       │   ├── architecture.json
+│   │       │   ├── bir_stats.json
+│   │       │   ├── history.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_2
+│   │       │   ├── architecture.json
+│   │       │   ├── bir_stats.json
+│   │       │   ├── history.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_3
+│   │       │   ├── architecture.json
+│   │       │   ├── bir_stats.json
+│   │       │   ├── history.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_4
+│   │       │   ├── architecture.json
+│   │       │   ├── bir_stats.json
+│   │       │   ├── history.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       └── run.log
+│   ├── BIRDNet_Random
+│   │   ├── 20260511_072923_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073437_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073543_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074158_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074244_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074742_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074850_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075355_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075438_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   └── 20260511_075842_metabric
+│   │       ├── config.json
+│   │       ├── fold_0
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_1
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       └── run.log
+│   ├── LogReg_L1
+│   │   ├── 20260430_071743_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_072147_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_073338_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_074513_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260430_074517_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_075735_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_075841_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_080702_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_081317_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260504_170512_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260504_174806_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_003808_tcga_rnaseq
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260505_013140_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260505_013839_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_020704_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_020806_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_022214_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_023322_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_030825_tcga_rnaseq
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_072923_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073437_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073543_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074158_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074244_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074742_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074850_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075355_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075438_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075842_metabric
+│   │   │   ├── config.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_081837_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_084912_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_085031_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_090532_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_091734_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.joblib
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   └── 20260511_095440_tcga_rnaseq
+│   │       ├── config.json
+│   │       ├── cv_summary.json
+│   │       ├── fold_0
+│   │       │   ├── metrics.json
+│   │       │   ├── model.joblib
+│   │       │   └── scaler.joblib
+│   │       ├── fold_1
+│   │       │   ├── metrics.json
+│   │       │   ├── model.joblib
+│   │       │   └── scaler.joblib
+│   │       ├── fold_2
+│   │       │   ├── metrics.json
+│   │       │   ├── model.joblib
+│   │       │   └── scaler.joblib
+│   │       ├── fold_3
+│   │       │   ├── metrics.json
+│   │       │   ├── model.joblib
+│   │       │   └── scaler.joblib
+│   │       ├── fold_4
+│   │       │   ├── metrics.json
+│   │       │   ├── model.joblib
+│   │       │   └── scaler.joblib
+│   │       └── run.log
+│   ├── MLP
+│   │   ├── 20260430_071743_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_072147_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_073338_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_074513_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260430_074517_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_075735_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_075841_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_080702_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260430_081317_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260504_170512_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260504_174806_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_003808_tcga_rnaseq
+│   │   │   ├── config.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_013140_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   └── run.log
+│   │   ├── 20260505_013839_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_020704_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_020806_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_022214_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_023322_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260505_030825_tcga_rnaseq
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_072923_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073437_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_073543_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074158_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074244_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074742_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_074850_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075355_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075438_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_075842_metabric
+│   │   │   ├── config.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_081837_tcga_rppa
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_084912_uci_mice_protein
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_085031_uci_gene_expression
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_090532_gse39582
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   ├── 20260511_091734_metabric
+│   │   │   ├── config.json
+│   │   │   ├── cv_summary.json
+│   │   │   ├── fold_0
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_1
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_2
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_3
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   ├── fold_4
+│   │   │   │   ├── architecture.json
+│   │   │   │   ├── metrics.json
+│   │   │   │   ├── model.pt
+│   │   │   │   └── scaler.joblib
+│   │   │   └── run.log
+│   │   └── 20260511_095440_tcga_rnaseq
+│   │       ├── config.json
+│   │       ├── cv_summary.json
+│   │       ├── fold_0
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_1
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_2
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_3
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       ├── fold_4
+│   │       │   ├── architecture.json
+│   │       │   ├── metrics.json
+│   │       │   ├── model.pt
+│   │       │   └── scaler.joblib
+│   │       └── run.log
+│   └── RandomForest
+│       ├── 20260430_071743_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_072147_uci_gene_expression
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_073338_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_074513_uci_mice_protein
+│       │   ├── config.json
+│       │   └── run.log
+│       ├── 20260430_074517_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_075735_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_075841_uci_gene_expression
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_080702_gse39582
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260430_081317_tcga_rppa
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260504_170512_metabric
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260504_174806_metabric
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260505_003808_tcga_rnaseq
+│       │   ├── config.json
+│       │   └── run.log
+│       ├── 20260505_013140_tcga_rppa
+│       │   ├── config.json
+│       │   └── run.log
+│       ├── 20260505_013839_tcga_rppa
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260505_020704_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260505_020806_uci_gene_expression
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260505_022214_gse39582
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260505_023322_metabric
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260505_030825_tcga_rnaseq
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_072923_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_073437_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_073543_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_074158_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_074244_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_074742_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_074850_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_075355_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_075438_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_075842_metabric
+│       │   ├── config.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_081837_tcga_rppa
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_084912_uci_mice_protein
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_085031_uci_gene_expression
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_090532_gse39582
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       ├── 20260511_091734_metabric
+│       │   ├── config.json
+│       │   ├── cv_summary.json
+│       │   ├── fold_0
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_1
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_2
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_3
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   ├── fold_4
+│       │   │   ├── metrics.json
+│       │   │   ├── model.joblib
+│       │   │   └── scaler.joblib
+│       │   └── run.log
+│       └── 20260511_095440_tcga_rnaseq
+│           ├── config.json
+│           ├── cv_summary.json
+│           ├── fold_0
+│           │   ├── metrics.json
+│           │   ├── model.joblib
+│           │   └── scaler.joblib
+│           ├── fold_1
+│           │   ├── metrics.json
+│           │   ├── model.joblib
+│           │   └── scaler.joblib
+│           ├── fold_2
+│           │   ├── metrics.json
+│           │   ├── model.joblib
+│           │   └── scaler.joblib
+│           ├── fold_3
+│           │   ├── metrics.json
+│           │   ├── model.joblib
+│           │   └── scaler.joblib
+│           ├── fold_4
+│           │   ├── metrics.json
+│           │   ├── model.joblib
+│           │   └── scaler.joblib
+│           └── run.log
+├── scripts
+│   ├── figures
+│   ├── make_fig1a.py
+│   └── make_figure.py
+├── train.py
+└── v0
+    ├── baselines_v0.py
+    ├── bir_v0.py
+    ├── experiment_io_v0.py
+    ├── logs
+    │   ├── all_runs.log
+    │   ├── gse39582.log
+    │   ├── metabric.log
+    │   ├── metabric_with_random.log
+    │   ├── random_smoke.log
+    │   ├── seed_test_a.log
+    │   ├── seed_test_b.log
+    │   ├── tcga_rnaseq.log
+    │   ├── tcga_rppa.log
+    │   ├── uci_gene_expression.log
+    │   └── uci_mice_protein.log
+    ├── model_v0.py
+    ├── run_experiments_v0.py
+    └── run_experiments_v1.py
+
+722 directories, 2730 files

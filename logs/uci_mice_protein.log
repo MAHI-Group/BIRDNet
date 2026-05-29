@@ -1,0 +1,339 @@
+Device: cuda, PyTorch: 2.8.0+cu129
+Global seed set to 42; CuDNN deterministic enabled.
+
+
+Loading uci_mice_protein (UCI 342 mice protein (Higuera et al., 2015))...
+08:49:12 [INFO] 
+########################################################################
+08:49:12 [INFO] # uci_mice_protein: UCI 342 mice protein (Higuera et al., 2015)
+08:49:12 [INFO] # Samples: 1080, Features: 77, Classes: 8
+08:49:12 [INFO] #   c-CS-m: 150
+08:49:12 [INFO] #   c-CS-s: 135
+08:49:12 [INFO] #   c-SC-m: 150
+08:49:12 [INFO] #   c-SC-s: 135
+08:49:12 [INFO] #   t-CS-m: 135
+08:49:12 [INFO] #   t-CS-s: 105
+08:49:12 [INFO] #   t-SC-m: 135
+08:49:12 [INFO] #   t-SC-s: 135
+08:49:12 [INFO] # BIR params: p<1e-06, sparse<0.05, max_birs=5000
+08:49:12 [INFO] ########################################################################
+08:49:12 [INFO] 
+--- Global BIR Discovery Overview ---
+  BIR discovery: 77 features, 2926 pairs, 23 workers
+Found 137 BIRs (77 features)
+  High->High: 44
+  Low->Low: 45
+  High->Low: 47
+  Equivalent: 1
+08:49:13 [INFO] Top 8 strongest primary BIRs (by p-value):
+08:49:13 [INFO]   p=1.60e-135                 ARC_N --[High->High]--> pS6_N
+08:49:13 [INFO]   p=1.60e-135                 ARC_N --[  Low->Low]--> pS6_N
+08:49:13 [INFO]   p=1.34e-80                 NR1_N --[  Low->Low]--> pNR1_N
+08:49:13 [INFO]   p=2.54e-76                pNR1_N --[High->High]--> pNR2B_N
+08:49:13 [INFO]   p=1.45e-70                 NR1_N --[  Low->Low]--> Bcatenin_N
+08:49:13 [INFO]   p=1.20e-60                NR2A_N --[High->High]--> pNR2B_N
+08:49:13 [INFO]   p=2.96e-59                pAKT_N --[High->High]--> pMEK_N
+08:49:13 [INFO]   p=5.67e-55                 NR1_N --[  Low->Low]--> NR2A_N
+08:49:13 [INFO] 
+--- 5-Fold Cross-Validation ---
+08:49:13 [INFO]   [fold 1] discovering BIRs on training set...
+08:49:14 [INFO]   [fold 1] BIRDNet built: 2916 units, training...
+08:49:15 [INFO] Epoch  10/200 | Train: 0.9423 | Val: 0.5681 | Acc: 0.8692 | F1: 0.8732
+08:49:15 [INFO] Epoch  20/200 | Train: 0.6801 | Val: 0.4160 | Acc: 0.8615 | F1: 0.8649
+08:49:16 [INFO] Epoch  30/200 | Train: 0.6146 | Val: 0.2677 | Acc: 0.8846 | F1: 0.8884
+08:49:16 [INFO] Epoch  40/200 | Train: 0.6104 | Val: 0.2470 | Acc: 0.9000 | F1: 0.9032
+08:49:16 [INFO] Epoch  50/200 | Train: 0.4775 | Val: 0.1899 | Acc: 0.9077 | F1: 0.9112
+08:49:17 [INFO] Epoch  60/200 | Train: 0.4596 | Val: 0.1336 | Acc: 0.9615 | F1: 0.9630
+08:49:17 [INFO] Epoch  70/200 | Train: 0.4059 | Val: 0.1552 | Acc: 0.9154 | F1: 0.9187
+08:49:17 [INFO] Epoch  80/200 | Train: 0.4134 | Val: 0.1205 | Acc: 0.9538 | F1: 0.9564
+08:49:18 [INFO] Epoch  90/200 | Train: 0.4053 | Val: 0.1078 | Acc: 0.9615 | F1: 0.9637
+08:49:18 [INFO] Epoch 100/200 | Train: 0.3871 | Val: 0.0918 | Acc: 0.9692 | F1: 0.9706
+08:49:18 [INFO] Epoch 110/200 | Train: 0.2756 | Val: 0.0830 | Acc: 0.9615 | F1: 0.9630
+08:49:19 [INFO] Epoch 120/200 | Train: 0.3450 | Val: 0.0875 | Acc: 0.9692 | F1: 0.9711
+08:49:19 [INFO] Epoch 130/200 | Train: 0.2843 | Val: 0.0765 | Acc: 0.9615 | F1: 0.9630
+08:49:19 [INFO] Epoch 140/200 | Train: 0.2780 | Val: 0.0643 | Acc: 0.9769 | F1: 0.9777
+08:49:20 [INFO] Epoch 150/200 | Train: 0.2605 | Val: 0.0608 | Acc: 0.9846 | F1: 0.9852
+08:49:20 [INFO] Epoch 160/200 | Train: 0.3050 | Val: 0.0592 | Acc: 0.9846 | F1: 0.9850
+08:49:20 [INFO] Epoch 170/200 | Train: 0.2397 | Val: 0.0542 | Acc: 0.9846 | F1: 0.9853
+08:49:21 [INFO] Epoch 180/200 | Train: 0.2087 | Val: 0.0546 | Acc: 0.9923 | F1: 0.9926
+08:49:21 [INFO] Early stopping at epoch 183
+08:49:25 [INFO]   Fold 1: BIRDNet 0.995 (2916 units, build 1.4s + train 6.7s) | MLP 0.991 (1.4s) | LR 0.991 (2.6s) | RF 1.000 (0.2s) | total 12.4s
+08:49:25 [INFO]   [fold 2] discovering BIRs on training set...
+08:49:27 [INFO]   [fold 2] BIRDNet built: 3081 units, training...
+08:49:27 [INFO] Epoch  10/200 | Train: 0.8285 | Val: 0.4794 | Acc: 0.8000 | F1: 0.7982
+08:49:27 [INFO] Epoch  20/200 | Train: 0.6236 | Val: 0.3206 | Acc: 0.8923 | F1: 0.8908
+08:49:28 [INFO] Epoch  30/200 | Train: 0.5612 | Val: 0.2316 | Acc: 0.9154 | F1: 0.9135
+08:49:28 [INFO] Epoch  40/200 | Train: 0.4097 | Val: 0.1961 | Acc: 0.9538 | F1: 0.9543
+08:49:28 [INFO] Epoch  50/200 | Train: 0.4251 | Val: 0.1754 | Acc: 0.9462 | F1: 0.9486
+08:49:29 [INFO] Epoch  60/200 | Train: 0.3928 | Val: 0.1280 | Acc: 0.9615 | F1: 0.9620
+08:49:29 [INFO] Epoch  70/200 | Train: 0.3916 | Val: 0.1405 | Acc: 0.9538 | F1: 0.9542
+08:49:29 [INFO] Epoch  80/200 | Train: 0.3205 | Val: 0.1219 | Acc: 0.9538 | F1: 0.9546
+08:49:30 [INFO] Epoch  90/200 | Train: 0.3449 | Val: 0.1028 | Acc: 0.9692 | F1: 0.9695
+08:49:30 [INFO] Epoch 100/200 | Train: 0.2827 | Val: 0.1067 | Acc: 0.9538 | F1: 0.9540
+08:49:30 [INFO] Epoch 110/200 | Train: 0.2330 | Val: 0.1022 | Acc: 0.9615 | F1: 0.9616
+08:49:31 [INFO] Epoch 120/200 | Train: 0.2081 | Val: 0.1006 | Acc: 0.9615 | F1: 0.9616
+08:49:31 [INFO] Epoch 130/200 | Train: 0.2632 | Val: 0.0876 | Acc: 0.9692 | F1: 0.9695
+08:49:31 [INFO] Epoch 140/200 | Train: 0.2295 | Val: 0.0891 | Acc: 0.9692 | F1: 0.9695
+08:49:31 [INFO] Early stopping at epoch 144
+08:49:38 [INFO]   Fold 2: BIRDNet 0.958 (3081 units, build 1.6s + train 4.9s) | MLP 1.000 (2.5s) | LR 0.991 (3.4s) | RF 0.995 (0.2s) | total 12.7s
+08:49:38 [INFO]   [fold 3] discovering BIRs on training set...
+08:49:39 [INFO]   [fold 3] BIRDNet built: 2700 units, training...
+08:49:40 [INFO] Epoch  10/200 | Train: 0.8891 | Val: 0.6139 | Acc: 0.8385 | F1: 0.8423
+08:49:40 [INFO] Epoch  20/200 | Train: 0.7185 | Val: 0.3724 | Acc: 0.9154 | F1: 0.9167
+08:49:40 [INFO] Epoch  30/200 | Train: 0.5993 | Val: 0.2767 | Acc: 0.9231 | F1: 0.9234
+08:49:41 [INFO] Epoch  40/200 | Train: 0.5759 | Val: 0.2251 | Acc: 0.9154 | F1: 0.9154
+08:49:41 [INFO] Epoch  50/200 | Train: 0.4495 | Val: 0.1722 | Acc: 0.9308 | F1: 0.9309
+08:49:41 [INFO] Epoch  60/200 | Train: 0.4078 | Val: 0.1605 | Acc: 0.9385 | F1: 0.9374
+08:49:42 [INFO] Epoch  70/200 | Train: 0.4475 | Val: 0.1179 | Acc: 0.9615 | F1: 0.9619
+08:49:42 [INFO] Epoch  80/200 | Train: 0.3945 | Val: 0.1136 | Acc: 0.9538 | F1: 0.9555
+08:49:42 [INFO] Epoch  90/200 | Train: 0.3792 | Val: 0.0987 | Acc: 0.9692 | F1: 0.9701
+08:49:43 [INFO] Epoch 100/200 | Train: 0.3104 | Val: 0.0786 | Acc: 0.9692 | F1: 0.9692
+08:49:43 [INFO] Epoch 110/200 | Train: 0.3327 | Val: 0.0819 | Acc: 0.9769 | F1: 0.9774
+08:49:43 [INFO] Epoch 120/200 | Train: 0.2841 | Val: 0.0712 | Acc: 0.9846 | F1: 0.9852
+08:49:44 [INFO] Epoch 130/200 | Train: 0.2752 | Val: 0.0697 | Acc: 0.9692 | F1: 0.9692
+08:49:44 [INFO] Epoch 140/200 | Train: 0.2448 | Val: 0.0594 | Acc: 0.9769 | F1: 0.9774
+08:49:44 [INFO] Epoch 150/200 | Train: 0.2528 | Val: 0.0578 | Acc: 0.9846 | F1: 0.9852
+08:49:45 [INFO] Epoch 160/200 | Train: 0.2645 | Val: 0.0525 | Acc: 0.9846 | F1: 0.9852
+08:49:45 [INFO] Epoch 170/200 | Train: 0.2912 | Val: 0.0521 | Acc: 0.9846 | F1: 0.9852
+08:49:45 [INFO] Epoch 180/200 | Train: 0.2552 | Val: 0.0529 | Acc: 0.9846 | F1: 0.9852
+08:49:46 [INFO] Epoch 190/200 | Train: 0.2617 | Val: 0.0536 | Acc: 0.9846 | F1: 0.9852
+08:49:46 [INFO] Epoch 200/200 | Train: 0.2711 | Val: 0.0501 | Acc: 0.9846 | F1: 0.9852
+08:49:50 [INFO]   Fold 3: BIRDNet 0.991 (2700 units, build 1.6s + train 6.7s) | MLP 1.000 (1.8s) | LR 0.986 (2.2s) | RF 0.977 (0.2s) | total 12.5s
+08:49:50 [INFO]   [fold 4] discovering BIRs on training set...
+08:49:52 [INFO]   [fold 4] BIRDNet built: 3147 units, training...
+08:49:52 [INFO] Epoch  10/200 | Train: 0.9075 | Val: 0.5669 | Acc: 0.7923 | F1: 0.7965
+08:49:53 [INFO] Epoch  20/200 | Train: 0.6467 | Val: 0.3772 | Acc: 0.8692 | F1: 0.8740
+08:49:53 [INFO] Epoch  30/200 | Train: 0.5733 | Val: 0.2804 | Acc: 0.8846 | F1: 0.8840
+08:49:53 [INFO] Epoch  40/200 | Train: 0.4720 | Val: 0.2238 | Acc: 0.9000 | F1: 0.9010
+08:49:54 [INFO] Epoch  50/200 | Train: 0.4622 | Val: 0.2072 | Acc: 0.9154 | F1: 0.9171
+08:49:54 [INFO] Epoch  60/200 | Train: 0.3537 | Val: 0.1495 | Acc: 0.9462 | F1: 0.9476
+08:49:54 [INFO] Epoch  70/200 | Train: 0.3762 | Val: 0.1324 | Acc: 0.9308 | F1: 0.9330
+08:49:55 [INFO] Epoch  80/200 | Train: 0.3703 | Val: 0.1244 | Acc: 0.9385 | F1: 0.9387
+08:49:55 [INFO] Epoch  90/200 | Train: 0.3754 | Val: 0.1330 | Acc: 0.9385 | F1: 0.9384
+08:49:55 [INFO] Epoch 100/200 | Train: 0.3661 | Val: 0.1101 | Acc: 0.9385 | F1: 0.9387
+08:49:56 [INFO] Epoch 110/200 | Train: 0.3204 | Val: 0.1121 | Acc: 0.9538 | F1: 0.9548
+08:49:56 [INFO] Epoch 120/200 | Train: 0.2823 | Val: 0.1016 | Acc: 0.9615 | F1: 0.9621
+08:49:56 [INFO] Epoch 130/200 | Train: 0.2554 | Val: 0.0907 | Acc: 0.9538 | F1: 0.9536
+08:49:57 [INFO] Epoch 140/200 | Train: 0.2892 | Val: 0.0708 | Acc: 0.9692 | F1: 0.9694
+08:49:57 [INFO] Epoch 150/200 | Train: 0.2811 | Val: 0.0739 | Acc: 0.9692 | F1: 0.9699
+08:49:57 [INFO] Epoch 160/200 | Train: 0.2634 | Val: 0.0684 | Acc: 0.9615 | F1: 0.9621
+08:49:57 [INFO] Early stopping at epoch 163
+08:50:02 [INFO]   Fold 4: BIRDNet 0.995 (3147 units, build 1.6s + train 5.5s) | MLP 1.000 (1.9s) | LR 0.995 (2.8s) | RF 0.995 (0.2s) | total 12.1s
+08:50:02 [INFO]   [fold 5] discovering BIRs on training set...
+08:50:04 [INFO]   [fold 5] BIRDNet built: 2256 units, training...
+08:50:04 [INFO] Epoch  10/200 | Train: 1.0046 | Val: 0.7318 | Acc: 0.8385 | F1: 0.8298
+08:50:04 [INFO] Epoch  20/200 | Train: 0.8523 | Val: 0.5183 | Acc: 0.8538 | F1: 0.8579
+08:50:05 [INFO] Epoch  30/200 | Train: 0.7470 | Val: 0.4173 | Acc: 0.9000 | F1: 0.9018
+08:50:05 [INFO] Epoch  40/200 | Train: 0.6592 | Val: 0.3161 | Acc: 0.9077 | F1: 0.9123
+08:50:05 [INFO] Epoch  50/200 | Train: 0.5931 | Val: 0.2659 | Acc: 0.9462 | F1: 0.9489
+08:50:06 [INFO] Epoch  60/200 | Train: 0.5719 | Val: 0.2052 | Acc: 0.9615 | F1: 0.9633
+08:50:06 [INFO] Epoch  70/200 | Train: 0.5112 | Val: 0.1776 | Acc: 0.9462 | F1: 0.9491
+08:50:06 [INFO] Epoch  80/200 | Train: 0.4615 | Val: 0.1349 | Acc: 0.9692 | F1: 0.9708
+08:50:07 [INFO] Epoch  90/200 | Train: 0.4779 | Val: 0.1412 | Acc: 0.9615 | F1: 0.9620
+08:50:07 [INFO] Epoch 100/200 | Train: 0.3927 | Val: 0.1190 | Acc: 0.9615 | F1: 0.9620
+08:50:07 [INFO] Epoch 110/200 | Train: 0.3647 | Val: 0.0920 | Acc: 0.9769 | F1: 0.9785
+08:50:08 [INFO] Epoch 120/200 | Train: 0.3444 | Val: 0.0913 | Acc: 0.9692 | F1: 0.9698
+08:50:08 [INFO] Epoch 130/200 | Train: 0.3826 | Val: 0.0861 | Acc: 0.9846 | F1: 0.9857
+08:50:09 [INFO] Epoch 140/200 | Train: 0.2911 | Val: 0.0771 | Acc: 0.9923 | F1: 0.9928
+08:50:09 [INFO] Epoch 150/200 | Train: 0.3861 | Val: 0.0699 | Acc: 0.9846 | F1: 0.9857
+08:50:09 [INFO] Epoch 160/200 | Train: 0.3062 | Val: 0.0705 | Acc: 0.9923 | F1: 0.9928
+08:50:10 [INFO] Epoch 170/200 | Train: 0.3239 | Val: 0.0658 | Acc: 0.9923 | F1: 0.9928
+08:50:10 [INFO] Epoch 180/200 | Train: 0.3148 | Val: 0.0679 | Acc: 0.9923 | F1: 0.9928
+08:50:10 [INFO] Epoch 190/200 | Train: 0.3660 | Val: 0.0671 | Acc: 0.9923 | F1: 0.9928
+08:50:10 [INFO] Early stopping at epoch 197
+08:50:14 [INFO]   Fold 5: BIRDNet 0.958 (2256 units, build 1.5s + train 6.7s) | MLP 0.986 (1.7s) | LR 0.954 (2.0s) | RF 0.981 (0.2s) | total 12.1s
+08:50:14 [INFO] 
+========================================================================
+08:50:14 [INFO] RESULTS: uci_mice_protein: UCI 342 mice protein (Higuera et al., 2015)
+08:50:14 [INFO] ========================================================================
+08:50:14 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+08:50:14 [INFO] ------------------------------------------------------------------------
+08:50:14 [INFO] BIRDNet         0.9796 +/- 0.0175 0.9805 +/- 0.0168 0.9981 +/- 0.0032          7.6
+08:50:14 [INFO] MLP             0.9954 +/- 0.0059 0.9955 +/- 0.0057 1.0000 +/- 0.0000          1.9
+08:50:14 [INFO] LogReg_L1       0.9833 +/- 0.0151 0.9834 +/- 0.0152 0.9987 +/- 0.0024          2.6
+08:50:14 [INFO] RandomForest    0.9898 +/- 0.0090 0.9902 +/- 0.0087 0.9998 +/- 0.0002          0.2
+08:50:14 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+08:50:14 [INFO]          binarize: 0.73s (min 0.66, max 0.77)
+08:50:14 [INFO]     bir_discovery: 0.72s (min 0.42, max 0.82)
+08:50:14 [INFO]            select: 0.00s (min 0.00, max 0.00)
+08:50:14 [INFO]           forward: 0.04s (min 0.00, max 0.20)
+08:50:14 [INFO]       build_total: 1.52s (min 1.38, max 1.61)
+08:50:14 [INFO]             train: 6.09s (min 4.87, max 6.71)
+08:50:14 [INFO]         BIR units: mean 2820, range 2256-3147
+08:50:14 [INFO] 
+Parameter counts (mean over folds):
+08:50:14 [INFO]        BIRDNet active (BIR layers): 8,460
+08:50:14 [INFO]       BIRDNet nominal (BIR layers): 365,690
+08:50:14 [INFO]            Classifier head (dense): 178,384
+08:50:14 [INFO]               BIRDNet total active: 186,844
+08:50:14 [INFO]              BIRDNet total nominal: 544,074
+08:50:14 [INFO]                   MatchedMLP total: 544,074
+08:50:14 [INFO]                 BIR-layer sparsity: 0.9765 (2.35% active)
+08:50:14 [INFO]                     Total sparsity: 0.6535 (34.65% active)
+08:50:14 [INFO]                  MLP/BIRDNet ratio: 2.9x
+08:50:14 [INFO] 
+--- Final Model for Explainability (80/20 split, seed=42) ---
+08:50:14 [INFO]   [fold final] discovering BIRs on training set...
+08:50:16 [INFO]   [fold final] BIRDNet built: 4478 units, training...
+08:50:17 [INFO] Epoch  10/200 | Train: 0.7700 | Val: 0.4269 | Acc: 0.8704 | F1: 0.8725
+08:50:17 [INFO] Epoch  20/200 | Train: 0.5673 | Val: 0.2795 | Acc: 0.9259 | F1: 0.9274
+08:50:18 [INFO] Epoch  30/200 | Train: 0.4982 | Val: 0.2181 | Acc: 0.9352 | F1: 0.9341
+08:50:18 [INFO] Epoch  40/200 | Train: 0.3860 | Val: 0.1415 | Acc: 0.9630 | F1: 0.9634
+08:50:18 [INFO] Epoch  50/200 | Train: 0.3914 | Val: 0.1033 | Acc: 0.9722 | F1: 0.9721
+08:50:19 [INFO] Epoch  60/200 | Train: 0.3142 | Val: 0.0975 | Acc: 0.9722 | F1: 0.9723
+08:50:19 [INFO] Epoch  70/200 | Train: 0.2665 | Val: 0.0576 | Acc: 0.9769 | F1: 0.9771
+08:50:20 [INFO] Epoch  80/200 | Train: 0.2542 | Val: 0.0614 | Acc: 0.9815 | F1: 0.9819
+08:50:20 [INFO] Epoch  90/200 | Train: 0.2380 | Val: 0.0613 | Acc: 0.9769 | F1: 0.9759
+08:50:20 [INFO] Epoch 100/200 | Train: 0.2385 | Val: 0.0539 | Acc: 0.9769 | F1: 0.9749
+08:50:21 [INFO] Epoch 110/200 | Train: 0.2163 | Val: 0.0442 | Acc: 0.9861 | F1: 0.9857
+08:50:21 [INFO] Epoch 120/200 | Train: 0.1642 | Val: 0.0228 | Acc: 0.9954 | F1: 0.9956
+08:50:22 [INFO] Epoch 130/200 | Train: 0.1697 | Val: 0.0378 | Acc: 0.9907 | F1: 0.9902
+08:50:22 [INFO] Epoch 140/200 | Train: 0.1787 | Val: 0.0265 | Acc: 0.9954 | F1: 0.9956
+08:50:22 [INFO] Epoch 150/200 | Train: 0.1538 | Val: 0.0417 | Acc: 0.9861 | F1: 0.9849
+08:50:23 [INFO] Early stopping at epoch 158
+08:50:23 [INFO]   Final model: Acc=0.9954, F1=0.9956
+08:50:23 [INFO] 
+--- Per-Class Decision Rules (DRM-style propositionalisation) ---
+08:50:27 [INFO] 
+Class: c-CS-m
+------------------------------------------------------------
+  R1. IF BIR_High->Low(GSK3B_N, H3MeK4_N) fires
+        THEN class=c-CS-m  (precision=0.298, recall=0.467, lift=2.14, support=0.218)
+  R2. IF BIR_High->Low(ITSN1_N, SOD1_N) fires
+        THEN class=c-CS-m  (precision=0.291, recall=1.000, lift=2.10, support=0.477)
+  R3. IF BIR_High->Low(GSK3B_N, pCFOS_N) fires
+        THEN class=c-CS-m  (precision=0.286, recall=0.267, lift=2.06, support=0.130)
+  R4. IF BIR_High->High(ITSN1_N, CaNA_N) fires
+        THEN class=c-CS-m  (precision=0.284, recall=0.633, lift=2.04, support=0.310)
+  R5. IF BIR_High->Low(pERK_N, SOD1_N) fires
+        THEN class=c-CS-m  (precision=0.283, recall=0.933, lift=2.04, support=0.458)
+
+Class: c-CS-s
+------------------------------------------------------------
+  R1. IF BIR_High->High(ELK_N, GSK3B_N) fires
+        THEN class=c-CS-s  (precision=0.429, recall=0.222, lift=3.43, support=0.065)
+  R2. IF BIR_High->Low(pERK_N, Ubiquitin_N) fires
+        THEN class=c-CS-s  (precision=0.417, recall=0.556, lift=3.33, support=0.167)
+  R3. IF BIR_High->Low(ITSN1_N, Ubiquitin_N) fires
+        THEN class=c-CS-s  (precision=0.382, recall=0.481, lift=3.06, support=0.157)
+  R4. IF BIR_High->High(ITSN1_N, pPKCAB_N) fires
+        THEN class=c-CS-s  (precision=0.373, recall=0.704, lift=2.98, support=0.236)
+  R5. IF BIR_High->Low(pPKCAB_N, H3MeK4_N) fires
+        THEN class=c-CS-s  (precision=0.358, recall=0.704, lift=2.87, support=0.245)
+
+Class: c-SC-m
+------------------------------------------------------------
+  R1. IF BIR_High->Low(P38_N, CaNA_N) fires
+        THEN class=c-SC-m  (precision=0.409, recall=0.900, lift=2.95, support=0.306)
+  R2. IF BIR_High->Low(EGR1_N, CaNA_N) fires
+        THEN class=c-SC-m  (precision=0.355, recall=0.900, lift=2.56, support=0.352)
+  R3. IF BIR_High->Low(pCAMKII_N, AcetylH3K9_N) fires
+        THEN class=c-SC-m  (precision=0.344, recall=0.700, lift=2.48, support=0.282)
+  R4. IF BIR_Low->Low(NR2A_N, ERK_N) fires
+        THEN class=c-SC-m  (precision=0.311, recall=0.467, lift=2.24, support=0.208)
+  R5. IF BIR_High->High(P38_N, pMTOR_N) fires
+        THEN class=c-SC-m  (precision=0.305, recall=0.600, lift=2.20, support=0.273)
+
+Class: c-SC-s
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(JNK_N, pNUMB_N) fires
+        THEN class=c-SC-s  (precision=0.513, recall=0.741, lift=4.10, support=0.181)
+  R2. IF BIR_High->Low(SOD1_N, CaNA_N) fires
+        THEN class=c-SC-s  (precision=0.435, recall=0.370, lift=3.48, support=0.106)
+  R3. IF BIR_High->High(AcetylH3K9_N, H3MeK4_N) fires
+        THEN class=c-SC-s  (precision=0.364, recall=0.148, lift=2.91, support=0.051)
+  R4. IF BIR_High->High(AcetylH3K9_N, H3AcK18_N) fires
+        THEN class=c-SC-s  (precision=0.308, recall=0.148, lift=2.46, support=0.060)
+  R5. IF BIR_High->High(ARC_N, pS6_N) fires
+        THEN class=c-SC-s  (precision=0.295, recall=0.481, lift=2.36, support=0.204)
+
+Class: t-CS-m
+------------------------------------------------------------
+  R1. IF BIR_High->Low(ITSN1_N, SNCA_N) fires
+        THEN class=t-CS-m  (precision=0.688, recall=0.407, lift=5.50, support=0.074)
+  R2. IF BIR_High->Low(ITSN1_N, pAKT_N) fires
+        THEN class=t-CS-m  (precision=0.464, recall=0.481, lift=3.71, support=0.130)
+  R3. IF BIR_High->High(GSK3B_N, TRKA_N) fires
+        THEN class=t-CS-m  (precision=0.421, recall=0.296, lift=3.37, support=0.088)
+  R4. IF BIR_High->Low(ITSN1_N, P38_N) fires
+        THEN class=t-CS-m  (precision=0.419, recall=0.481, lift=3.35, support=0.144)
+  R5. IF BIR_High->Low(ITSN1_N, H3MeK4_N) fires
+        THEN class=t-CS-m  (precision=0.400, recall=0.296, lift=3.20, support=0.093)
+
+Class: t-CS-s
+------------------------------------------------------------
+  R1. IF BIR_High->Low(ITSN1_N, P38_N) fires
+        THEN class=t-CS-s  (precision=0.419, recall=0.619, lift=4.31, support=0.144)
+  R2. IF BIR_Low->Low(MTOR_N, P38_N) fires
+        THEN class=t-CS-s  (precision=0.348, recall=0.762, lift=3.58, support=0.213)
+  R3. IF BIR_High->High(ITSN1_N, S6_N) fires
+        THEN class=t-CS-s  (precision=0.286, recall=0.762, lift=2.94, support=0.259)
+  R4. IF BIR_Low->Low(MTOR_N, NR2B_N) fires
+        THEN class=t-CS-s  (precision=0.275, recall=0.524, lift=2.83, support=0.185)
+  R5. IF BIR_High->High(ITSN1_N, pGSK3B_N) fires
+        THEN class=t-CS-s  (precision=0.273, recall=0.429, lift=2.81, support=0.153)
+
+Class: t-SC-m
+------------------------------------------------------------
+  R1. IF BIR_High->High(AcetylH3K9_N, H3MeK4_N) fires
+        THEN class=t-SC-m  (precision=0.545, recall=0.222, lift=4.36, support=0.051)
+  R2. IF BIR_High->High(AcetylH3K9_N, H3AcK18_N) fires
+        THEN class=t-SC-m  (precision=0.462, recall=0.222, lift=3.69, support=0.060)
+  R3. IF BIR_High->High(ARC_N, pS6_N) fires
+        THEN class=t-SC-m  (precision=0.455, recall=0.741, lift=3.64, support=0.204)
+  R4. IF BIR_High->High(pAKT_N, pMEK_N) fires
+        THEN class=t-SC-m  (precision=0.394, recall=0.481, lift=3.15, support=0.153)
+  R5. IF BIR_High->High(pAKT_N, pBRAF_N) fires
+        THEN class=t-SC-m  (precision=0.353, recall=0.444, lift=2.82, support=0.157)
+
+Class: t-SC-s
+------------------------------------------------------------
+  R1. IF BIR_High->High(AcetylH3K9_N, Tau_N) fires
+        THEN class=t-SC-s  (precision=0.364, recall=0.593, lift=2.91, support=0.204)
+  R2. IF BIR_High->High(AMPKA_N, TIAM1_N) fires
+        THEN class=t-SC-s  (precision=0.282, recall=0.741, lift=2.25, support=0.329)
+  R3. IF BIR_High->High(Tau_N, P3525_N) fires
+        THEN class=t-SC-s  (precision=0.271, recall=0.593, lift=2.17, support=0.273)
+  R4. IF BIR_High->High(ITSN1_N, APP_N) fires
+        THEN class=t-SC-s  (precision=0.269, recall=0.519, lift=2.15, support=0.241)
+  R5. IF BIR_High->High(AcetylH3K9_N, H3AcK18_N) fires
+        THEN class=t-SC-s  (precision=0.231, recall=0.111, lift=1.85, support=0.060)
+08:50:27 [INFO] 
+--- Per-Instance Explanation (DRM-style, test sample 0) ---
+08:50:27 [INFO]   Predicted: t-CS-m  (true: t-CS-m)
+08:50:27 [INFO]   Probabilities: c-CS-m=0.000, c-CS-s=0.000, c-SC-m=0.000, c-SC-s=0.000, t-CS-m=0.998, t-CS-s=0.001, t-SC-m=0.000, t-SC-s=0.000
+08:50:27 [INFO]   Rules fired: 75/170
+08:50:27 [INFO]   Top 5 contributing rules:
+08:50:27 [INFO]     [FIRED] BIR_Low->Low(AKT_N, ELK_N) fires                              act=1.945  contrib=5.216
+08:50:27 [INFO]     [FIRED] BIR_Low->Low(NR1_N, pNR1_N) fires                             act=1.831  contrib=4.865
+08:50:27 [INFO]     [FIRED] BIR_Low->Low(pJNK_N, RAPTOR_N) fires                          act=1.089  contrib=4.350
+08:50:27 [INFO]     [FIRED] BIR_High->High(ITSN1_N, pGSK3B_N) fires                       act=1.159  contrib=3.635
+08:50:27 [INFO]     [FIRED] BIR_Low->Low(pMTOR_N, AMPKA_N) fires                          act=1.615  contrib=3.613
+08:50:27 [INFO] 
+--- Per-Instance LRP Explanation Tree (test sample 0) ---
+08:50:27 [INFO]   Target class: t-CS-m (true: t-CS-m)
+08:50:27 [INFO] - Predicted class: t-CS-m  [R=+8.7789  val=8.779]
+  - dense_0[8]  [R=+2.2132  contrib=+2.2132]
+    - BIR_High->Low(AKT_N, feat_166)  [R=+0.0891  contrib=+0.0435]
+      - BIR_Low->Low(PKCA_N, pPKCAB_N)  [R=+0.7312  contrib=+0.0744]
+        - input: pPKCAB_N  [R=+0.7226  contrib=+0.7226  val=-1.947]
+        - input: PKCA_N  [R=+0.1481  contrib=+0.1481  val=-1.863]
+    - BIR_Low->Low(feat_121, feat_156)  [R=+0.0696  contrib=+0.0434]
+  - dense_0[31]  [R=+1.0459  contrib=+1.0459]
+    - BIR_High->High(JNK_N, feat_153)  [R=+0.1480  contrib=+0.0217]
+      - BIR_Low->Low(pJNK_N, ADARB1_N)  [R=+0.7260  contrib=+0.1252]
+        - input: ADARB1_N  [R=+4.6481  contrib=+0.6097  val=-1.542]
+        - input: pJNK_N  [R=-0.3648  contrib=+0.1515  val=-1.109]
+      - BIR_Low->Low(pJNK_N, pMTOR_N)  [R=+0.1868  contrib=+0.0587]
+        - input: pJNK_N  [R=-0.3648  contrib=+0.1026  val=-1.109]
+        - input: pMTOR_N  [R=+0.8004  contrib=+0.0944  val=-1.421]
+    - BIR_High->High(ITSN1_N, pCAMKII_N)  [R=+0.0772  contrib=+0.0194]
+      - BIR_Low->Low(NR1_N, pNR1_N)  [R=-0.0494  contrib=+0.0511]
+        - input: pNR1_N  [R=+0.4268  contrib=-0.0603  val=-2.552]
+        - input: NR1_N  [R=+0.4128  contrib=+0.0026  val=-2.357]
+      - BIR_Low->Low(NR1_N, NR2A_N)  [R=+0.2354  contrib=+0.0389]
+        - input: NR1_N  [R=+0.4128  contrib=+0.1846  val=-2.357]
+        - input: NR2A_N  [R=-1.2501  contrib=+0.1021  val=-1.884]
+08:50:27 [INFO] 
+  Note: tree truncated at depth 4. Full tree available via tree_to_dict() for offline analysis.
