@@ -12,9 +12,9 @@ Use the conda environment supplied `env.yml` file. Note that this is my major co
 
 ### Datasets and how to run
 
-2 proteomics datasets; 4 transcriptomics datasets (see the paper)
+2 proteomics datasets; 4 transcriptomics datasets (see the paper). Due to large size of the datasets, it is difficult to upload these here. We will provide them somewhere later.
 
-To run:
+To run (this will not run at the moment without data):
 ```bash
 ./run.sh                                       # all six datasets
 python run_experiments.py --dataset gse39582   # single dataset
@@ -26,9 +26,9 @@ Reload a saved run for inference or explanation:
 ```bash
 python load_run.py --dataset gse39582 --fold 0
 ```
-(Loading is a bit tricky; due to the nature of the trained model. I got bugs sometimes. Use sparingly.)
+(Loading is a bit tricky due to the nature of the trained model. I got bugs sometimes. Use sparingly.)
 
-In this experiments, we used a ubuntu machine with 12-core AMD processor, 64 GB RAM, and 24 GB GPU (NVIDIA RTX 4500 Ada Generation).
+In these experiments, we used an Ubuntu machine with a 12-core AMD processor, 64 GB RAM, and 24 GB GPU (NVIDIA RTX 4500 Ada Generation).
 
 ### Repository layout
 

@@ -1,0 +1,341 @@
+--- Per-Class Decision Rules (DRM-style propositionalisation) ---
+14:04:33 [INFO] 
+Class: Acute Myeloid Leukemia
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(AP1M2, FAM3D) fires
+        THEN class=Acute Myeloid Leukemia  (precision=0.189, recall=0.657, lift=10.83, support=0.061)
+  R2. IF BIR_Low->Low(OVOL2, LAMC2) fires
+        THEN class=Acute Myeloid Leukemia  (precision=0.166, recall=0.943, lift=9.53, support=0.099)
+  R3. IF BIR_Low->Low(KRT19, RP11-734K21.5) fires
+        THEN class=Acute Myeloid Leukemia  (precision=0.166, recall=0.943, lift=9.53, support=0.099)
+  R4. IF BIR_Low->Low(KRT19, RNF223) fires
+        THEN class=Acute Myeloid Leukemia  (precision=0.162, recall=0.943, lift=9.29, support=0.101)
+  R5. IF BIR_Low->Low(LAD1, RNF223) fires
+        THEN class=Acute Myeloid Leukemia  (precision=0.155, recall=1.000, lift=8.90, support=0.112)
+
+Class: Bladder Urothelial Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(KRT17, PVRL4) fires
+        THEN class=Bladder Urothelial Carcinoma  (precision=0.280, recall=0.388, lift=6.62, support=0.059)
+  R2. IF BIR_Low->Low(SPRR1A, SPRR2A) fires
+        THEN class=Bladder Urothelial Carcinoma  (precision=0.234, recall=0.600, lift=5.53, support=0.108)
+  R3. IF BIR_High->High(SMIM22, SFN) fires
+        THEN class=Bladder Urothelial Carcinoma  (precision=0.214, recall=0.482, lift=5.05, support=0.095)
+  R4. IF BIR_High->High(TMEM40, SFN) fires
+        THEN class=Bladder Urothelial Carcinoma  (precision=0.188, recall=0.882, lift=4.46, support=0.198)
+  R5. IF BIR_High->High(KRT16, SYT8) fires
+        THEN class=Bladder Urothelial Carcinoma  (precision=0.185, recall=0.518, lift=4.37, support=0.118)
+
+Class: Brain Lower Grade Glioma
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(RP11-465B22.8, SLC44A4) fires
+        THEN class=Brain Lower Grade Glioma  (precision=0.491, recall=0.524, lift=9.41, support=0.056)
+  R2. IF BIR_High->High(HEPN1, HEPACAM) fires
+        THEN class=Brain Lower Grade Glioma  (precision=0.479, recall=1.000, lift=9.18, support=0.109)
+  R3. IF BIR_Low->Low(LAD1, RNF223) fires
+        THEN class=Brain Lower Grade Glioma  (precision=0.416, recall=0.895, lift=7.97, support=0.112)
+  R4. IF BIR_Low->Low(IGKV3-15, IGHV3-23) fires
+        THEN class=Brain Lower Grade Glioma  (precision=0.388, recall=0.829, lift=7.44, support=0.111)
+  R5. IF BIR_Low->Low(IGKV3-15, IGLV1-40) fires
+        THEN class=Brain Lower Grade Glioma  (precision=0.386, recall=0.819, lift=7.39, support=0.111)
+
+Class: Breast Invasive Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(FOXA1, SFN) fires
+        THEN class=Breast Invasive Carcinoma  (precision=0.370, recall=0.839, lift=3.08, support=0.273)
+  R2. IF BIR_Low->Low(RPS4Y1, TBL1Y) fires
+        THEN class=Breast Invasive Carcinoma  (precision=0.365, recall=0.789, lift=3.03, support=0.261)
+  R3. IF BIR_Low->Low(RPS4Y1, RP11-115H13.1) fires
+        THEN class=Breast Invasive Carcinoma  (precision=0.365, recall=0.789, lift=3.03, support=0.261)
+  R4. IF BIR_High->High(TRIM29, PVRL4) fires
+        THEN class=Breast Invasive Carcinoma  (precision=0.362, recall=0.574, lift=3.01, support=0.191)
+  R5. IF BIR_High->High(RAB25, OVOL2) fires
+        THEN class=Breast Invasive Carcinoma  (precision=0.359, recall=0.645, lift=2.99, support=0.216)
+
+Class: Cervical & Endocervical Cancer
+------------------------------------------------------------
+  R1. IF BIR_High->High(KRT17, PVRL4) fires
+        THEN class=Cervical & Endocervical Cancer  (precision=0.229, recall=0.435, lift=7.42, support=0.059)
+  R2. IF BIR_High->High(SMIM22, SFN) fires
+        THEN class=Cervical & Endocervical Cancer  (precision=0.214, recall=0.661, lift=6.93, support=0.095)
+  R3. IF BIR_High->High(FAM83E, SFN) fires
+        THEN class=Cervical & Endocervical Cancer  (precision=0.168, recall=0.774, lift=5.44, support=0.142)
+  R4. IF BIR_High->High(KRT15, SFN) fires
+        THEN class=Cervical & Endocervical Cancer  (precision=0.167, recall=0.758, lift=5.41, support=0.140)
+  R5. IF BIR_High->High(KRT17, TACSTD2) fires
+        THEN class=Cervical & Endocervical Cancer  (precision=0.158, recall=0.694, lift=5.11, support=0.136)
+
+Class: Colon Adenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(CEACAM5, CEACAM6) fires
+        THEN class=Colon Adenocarcinoma  (precision=0.233, recall=0.530, lift=7.11, support=0.075)
+  R2. IF BIR_High->High(AGR2, EPCAM) fires
+        THEN class=Colon Adenocarcinoma  (precision=0.218, recall=0.818, lift=6.63, support=0.123)
+  R3. IF BIR_High->High(CEACAM7, GRHL2) fires
+        THEN class=Colon Adenocarcinoma  (precision=0.216, recall=0.818, lift=6.58, support=0.124)
+  R4. IF BIR_High->High(CEACAM5, OVOL2) fires
+        THEN class=Colon Adenocarcinoma  (precision=0.209, recall=0.985, lift=6.37, support=0.155)
+  R5. IF BIR_High->High(LGALS4, RP11-595B24.2) fires
+        THEN class=Colon Adenocarcinoma  (precision=0.191, recall=0.985, lift=5.81, support=0.170)
+
+Class: Esophageal Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(MIR3648-1, MIR3648-2) fires
+        THEN class=Esophageal Carcinoma  (precision=0.128, recall=0.974, lift=6.62, support=0.147)
+  R2. IF BIR_High->High(SERPINB5, RP3-523K23.2) fires
+        THEN class=Esophageal Carcinoma  (precision=0.101, recall=0.590, lift=5.22, support=0.113)
+  R3. IF BIR_High->High(AGR2, RP11-27G14.4) fires
+        THEN class=Esophageal Carcinoma  (precision=0.099, recall=0.462, lift=5.10, support=0.091)
+  R4. IF BIR_High->High(OVOL2, C6orf132) fires
+        THEN class=Esophageal Carcinoma  (precision=0.090, recall=0.692, lift=4.66, support=0.149)
+  R5. IF BIR_High->High(PRSS22, PKP3) fires
+        THEN class=Esophageal Carcinoma  (precision=0.087, recall=0.641, lift=4.51, support=0.142)
+
+Class: Glioblastoma Multiforme
+------------------------------------------------------------
+  R1. IF BIR_High->High(HEPN1, HEPACAM) fires
+        THEN class=Glioblastoma Multiforme  (precision=0.155, recall=1.000, lift=9.18, support=0.109)
+  R2. IF BIR_Low->Low(LAD1, RNF223) fires
+        THEN class=Glioblastoma Multiforme  (precision=0.137, recall=0.912, lift=8.11, support=0.112)
+  R3. IF BIR_Low->Low(KRT19, RP11-734K21.5) fires
+        THEN class=Glioblastoma Multiforme  (precision=0.116, recall=0.676, lift=6.84, support=0.099)
+  R4. IF BIR_Low->Low(LAD1, KRT7) fires
+        THEN class=Glioblastoma Multiforme  (precision=0.109, recall=1.000, lift=6.45, support=0.155)
+  R5. IF BIR_Low->Low(PRR15L, FAM3B) fires
+        THEN class=Glioblastoma Multiforme  (precision=0.108, recall=0.618, lift=6.40, support=0.096)
+
+Class: Head & Neck Squamous Cell Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(DSG3, SFN) fires
+        THEN class=Head & Neck Squamous Cell Carcinoma  (precision=0.393, recall=0.956, lift=6.99, support=0.137)
+  R2. IF BIR_High->High(KRT15, SFN) fires
+        THEN class=Head & Neck Squamous Cell Carcinoma  (precision=0.383, recall=0.956, lift=6.82, support=0.140)
+  R3. IF BIR_High->High(SERPINB5, RP3-523K23.2) fires
+        THEN class=Head & Neck Squamous Cell Carcinoma  (precision=0.379, recall=0.761, lift=6.74, support=0.113)
+  R4. IF BIR_High->High(SPRR2E, KRT6C) fires
+        THEN class=Head & Neck Squamous Cell Carcinoma  (precision=0.360, recall=0.991, lift=6.41, support=0.155)
+  R5. IF BIR_High->High(SPRR2E, KRT16) fires
+        THEN class=Head & Neck Squamous Cell Carcinoma  (precision=0.358, recall=0.973, lift=6.38, support=0.153)
+
+Class: Kidney Clear Cell Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(ACSM2A, SLC28A1) fires
+        THEN class=Kidney Clear Cell Carcinoma  (precision=0.448, recall=0.934, lift=7.45, support=0.125)
+  R2. IF BIR_High->High(ACSM2B, BHMT) fires
+        THEN class=Kidney Clear Cell Carcinoma  (precision=0.448, recall=0.967, lift=7.45, support=0.130)
+  R3. IF BIR_High->High(ACSM2A, BHMT) fires
+        THEN class=Kidney Clear Cell Carcinoma  (precision=0.447, recall=0.967, lift=7.42, support=0.130)
+  R4. IF BIR_High->High(ACSM2B, UGT1A9) fires
+        THEN class=Kidney Clear Cell Carcinoma  (precision=0.446, recall=0.926, lift=7.42, support=0.125)
+  R5. IF BIR_High->High(ACSM2A, UGT1A9) fires
+        THEN class=Kidney Clear Cell Carcinoma  (precision=0.446, recall=0.926, lift=7.42, support=0.125)
+
+Class: Kidney Papillary Cell Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(GRHL2, C1orf210) fires
+        THEN class=Kidney Papillary Cell Carcinoma  (precision=0.251, recall=0.750, lift=7.90, support=0.095)
+  R2. IF BIR_High->High(FXYD2, RP11-728F11.3) fires
+        THEN class=Kidney Papillary Cell Carcinoma  (precision=0.240, recall=0.984, lift=7.53, support=0.131)
+  R3. IF BIR_High->High(PKP3, CLDN4) fires
+        THEN class=Kidney Papillary Cell Carcinoma  (precision=0.237, recall=0.781, lift=7.45, support=0.105)
+  R4. IF BIR_High->High(SLC17A1, ACMSD) fires
+        THEN class=Kidney Papillary Cell Carcinoma  (precision=0.237, recall=0.984, lift=7.44, support=0.132)
+  R5. IF BIR_High->High(ACSM2A, ACMSD) fires
+        THEN class=Kidney Papillary Cell Carcinoma  (precision=0.237, recall=0.969, lift=7.44, support=0.130)
+
+Class: Liver Hepatocellular Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(CYP4A11, CYP4A22) fires
+        THEN class=Liver Hepatocellular Carcinoma  (precision=0.390, recall=0.976, lift=9.35, support=0.104)
+  R2. IF BIR_High->High(RAB25, LAD1) fires
+        THEN class=Liver Hepatocellular Carcinoma  (precision=0.337, recall=0.690, lift=8.07, support=0.086)
+  R3. IF BIR_High->High(ACSM2A, PKLR) fires
+        THEN class=Liver Hepatocellular Carcinoma  (precision=0.336, recall=0.988, lift=8.04, support=0.123)
+  R4. IF BIR_High->High(ACSM2B, UGT1A9) fires
+        THEN class=Liver Hepatocellular Carcinoma  (precision=0.331, recall=0.988, lift=7.92, support=0.125)
+  R5. IF BIR_High->High(ACSM2A, SLC17A2) fires
+        THEN class=Liver Hepatocellular Carcinoma  (precision=0.329, recall=0.988, lift=7.89, support=0.125)
+
+Class: Lung Adenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(SFTPA1, SFTPA2) fires
+        THEN class=Lung Adenocarcinoma  (precision=0.407, recall=0.896, lift=7.12, support=0.126)
+  R2. IF BIR_High->High(SFTA3, RP11-896J10.3) fires
+        THEN class=Lung Adenocarcinoma  (precision=0.344, recall=0.939, lift=6.01, support=0.156)
+  R3. IF BIR_High->High(SFTPB, NKX2-1-AS1) fires
+        THEN class=Lung Adenocarcinoma  (precision=0.339, recall=0.939, lift=5.92, support=0.159)
+  R4. IF BIR_High->High(SFTPB, SFTA3) fires
+        THEN class=Lung Adenocarcinoma  (precision=0.339, recall=0.948, lift=5.92, support=0.160)
+  R5. IF BIR_High->High(SFTPB, NKX2-1) fires
+        THEN class=Lung Adenocarcinoma  (precision=0.331, recall=0.939, lift=5.79, support=0.162)
+
+Class: Lung Squamous Cell Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(SFTPA1, SFTPA2) fires
+        THEN class=Lung Squamous Cell Carcinoma  (precision=0.352, recall=0.809, lift=6.43, support=0.126)
+  R2. IF BIR_High->High(SFTPB, SFTA3) fires
+        THEN class=Lung Squamous Cell Carcinoma  (precision=0.267, recall=0.782, lift=4.88, support=0.160)
+  R3. IF BIR_High->High(SFTPB, NKX2-1) fires
+        THEN class=Lung Squamous Cell Carcinoma  (precision=0.264, recall=0.782, lift=4.82, support=0.162)
+  R4. IF BIR_High->High(DSG3, SFN) fires
+        THEN class=Lung Squamous Cell Carcinoma  (precision=0.262, recall=0.655, lift=4.79, support=0.137)
+  R5. IF BIR_High->High(SFTA3, AMY1C) fires
+        THEN class=Lung Squamous Cell Carcinoma  (precision=0.260, recall=0.800, lift=4.76, support=0.168)
+
+Class: Ovarian Serous Cystadenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(MIR3648-1, MIR3648-2) fires
+        THEN class=Ovarian Serous Cystadenocarcinoma  (precision=0.287, recall=1.000, lift=6.79, support=0.147)
+  R2. IF BIR_High->High(AGR2, GRB7) fires
+        THEN class=Ovarian Serous Cystadenocarcinoma  (precision=0.176, recall=0.918, lift=4.17, support=0.220)
+  R3. IF BIR_High->High(GRHL2, GRB7) fires
+        THEN class=Ovarian Serous Cystadenocarcinoma  (precision=0.167, recall=0.835, lift=3.96, support=0.211)
+  R4. IF BIR_High->High(IVL, FAM83A) fires
+        THEN class=Ovarian Serous Cystadenocarcinoma  (precision=0.166, recall=0.906, lift=3.92, support=0.231)
+  R5. IF BIR_Low->Low(RPS4Y1, RP11-115H13.1) fires
+        THEN class=Ovarian Serous Cystadenocarcinoma  (precision=0.162, recall=1.000, lift=3.84, support=0.261)
+
+Class: Pancreatic Adenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(CEACAM5, CEACAM6) fires
+        THEN class=Pancreatic Adenocarcinoma  (precision=0.120, recall=0.486, lift=6.52, support=0.075)
+  R2. IF BIR_High->High(FXYD2, RP11-728F11.3) fires
+        THEN class=Pancreatic Adenocarcinoma  (precision=0.099, recall=0.703, lift=5.37, support=0.131)
+  R3. IF BIR_High->High(RNF223, ELF3) fires
+        THEN class=Pancreatic Adenocarcinoma  (precision=0.098, recall=0.297, lift=5.34, support=0.056)
+  R4. IF BIR_High->High(KRT16, SYT8) fires
+        THEN class=Pancreatic Adenocarcinoma  (precision=0.097, recall=0.622, lift=5.25, support=0.118)
+  R5. IF BIR_High->High(PRSS22, ESRP1) fires
+        THEN class=Pancreatic Adenocarcinoma  (precision=0.095, recall=0.865, lift=5.15, support=0.168)
+
+Class: Pheochromocytoma & Paraganglioma
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(AP1M2, FAM3D) fires
+        THEN class=Pheochromocytoma & Paraganglioma  (precision=0.164, recall=0.541, lift=8.91, support=0.061)
+  R2. IF BIR_Low->Low(CLDN4, ITGB6) fires
+        THEN class=Pheochromocytoma & Paraganglioma  (precision=0.144, recall=0.486, lift=7.83, support=0.062)
+  R3. IF BIR_Low->Low(FXYD3, S100P) fires
+        THEN class=Pheochromocytoma & Paraganglioma  (precision=0.132, recall=0.568, lift=7.18, support=0.079)
+  R4. IF BIR_Low->Low(ESRP1, PVRL4) fires
+        THEN class=Pheochromocytoma & Paraganglioma  (precision=0.132, recall=0.838, lift=7.17, support=0.117)
+  R5. IF BIR_Low->Low(ESRP1, RNF223) fires
+        THEN class=Pheochromocytoma & Paraganglioma  (precision=0.131, recall=0.946, lift=7.12, support=0.133)
+
+Class: Prostate Adenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(RPS4Y1, TXLNGY) fires
+        THEN class=Prostate Adenocarcinoma  (precision=0.546, recall=0.591, lift=9.99, support=0.059)
+  R2. IF BIR_Low->Low(RAB25, S100A14) fires
+        THEN class=Prostate Adenocarcinoma  (precision=0.356, recall=0.873, lift=6.50, support=0.134)
+  R3. IF BIR_High->High(RPS4Y1, TTTY14) fires
+        THEN class=Prostate Adenocarcinoma  (precision=0.345, recall=0.736, lift=6.30, support=0.117)
+  R4. IF BIR_High->High(RPS4Y1, EIF1AY) fires
+        THEN class=Prostate Adenocarcinoma  (precision=0.327, recall=0.591, lift=5.97, support=0.099)
+  R5. IF BIR_High->High(CEACAM5, C1orf116) fires
+        THEN class=Prostate Adenocarcinoma  (precision=0.305, recall=0.964, lift=5.57, support=0.173)
+
+Class: Rectum Adenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(CEACAM5, CEACAM6) fires
+        THEN class=Rectum Adenocarcinoma  (precision=0.087, recall=0.650, lift=8.71, support=0.075)
+  R2. IF BIR_High->High(AGR2, EPCAM) fires
+        THEN class=Rectum Adenocarcinoma  (precision=0.081, recall=1.000, lift=8.11, support=0.123)
+  R3. IF BIR_High->High(CEACAM5, OVOL2) fires
+        THEN class=Rectum Adenocarcinoma  (precision=0.061, recall=0.950, lift=6.14, support=0.155)
+  R4. IF BIR_High->High(CEACAM7, GRHL2) fires
+        THEN class=Rectum Adenocarcinoma  (precision=0.060, recall=0.750, lift=6.03, support=0.124)
+  R5. IF BIR_High->High(LGALS4, RP11-595B24.2) fires
+        THEN class=Rectum Adenocarcinoma  (precision=0.059, recall=1.000, lift=5.90, support=0.170)
+
+Class: Sarcoma
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(EPCAM, PVRL4) fires
+        THEN class=Sarcoma  (precision=0.179, recall=0.736, lift=6.79, support=0.108)
+  R2. IF BIR_Low->Low(LAD1, TMPRSS2) fires
+        THEN class=Sarcoma  (precision=0.149, recall=0.962, lift=5.64, support=0.171)
+  R3. IF BIR_Low->Low(MAL2, KDF1) fires
+        THEN class=Sarcoma  (precision=0.146, recall=0.943, lift=5.53, support=0.171)
+  R4. IF BIR_Low->Low(LAD1, ELF3) fires
+        THEN class=Sarcoma  (precision=0.142, recall=0.981, lift=5.41, support=0.182)
+  R5. IF BIR_Low->Low(RP4-568C11.4, SFN) fires
+        THEN class=Sarcoma  (precision=0.142, recall=0.736, lift=5.40, support=0.136)
+
+Class: Skin Cutaneous Melanoma
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(EPCAM, PVRL4) fires
+        THEN class=Skin Cutaneous Melanoma  (precision=0.344, recall=0.798, lift=7.36, support=0.108)
+  R2. IF BIR_Low->Low(PRR15L, FAM3B) fires
+        THEN class=Skin Cutaneous Melanoma  (precision=0.278, recall=0.574, lift=5.95, support=0.096)
+  R3. IF BIR_Low->Low(PRSS8, C1orf116) fires
+        THEN class=Skin Cutaneous Melanoma  (precision=0.276, recall=0.596, lift=5.90, support=0.101)
+  R4. IF BIR_Low->Low(RAB25, MISP) fires
+        THEN class=Skin Cutaneous Melanoma  (precision=0.270, recall=0.798, lift=5.77, support=0.138)
+  R5. IF BIR_Low->Low(EPCAM, OVOL1) fires
+        THEN class=Skin Cutaneous Melanoma  (precision=0.262, recall=0.798, lift=5.61, support=0.142)
+
+Class: Stomach Adenocarcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(MIR3648-1, MIR3648-2) fires
+        THEN class=Stomach Adenocarcinoma  (precision=0.277, recall=0.911, lift=6.19, support=0.147)
+  R2. IF BIR_High->High(CEACAM5, AGR2) fires
+        THEN class=Stomach Adenocarcinoma  (precision=0.269, recall=0.544, lift=6.02, support=0.091)
+  R3. IF BIR_High->High(LGALS4, RP11-595B24.2) fires
+        THEN class=Stomach Adenocarcinoma  (precision=0.243, recall=0.922, lift=5.44, support=0.170)
+  R4. IF BIR_High->High(LGALS4, TRIM10) fires
+        THEN class=Stomach Adenocarcinoma  (precision=0.196, recall=0.922, lift=4.37, support=0.211)
+  R5. IF BIR_High->High(CLRN3, AC021218.2) fires
+        THEN class=Stomach Adenocarcinoma  (precision=0.194, recall=0.900, lift=4.33, support=0.208)
+
+Class: Testicular Germ Cell Tumor
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(U47924.27, ALDH3B2) fires
+        THEN class=Testicular Germ Cell Tumor  (precision=0.086, recall=0.710, lift=5.57, support=0.127)
+  R2. IF BIR_High->High(UTY, TTTY15) fires
+        THEN class=Testicular Germ Cell Tumor  (precision=0.072, recall=0.839, lift=4.66, support=0.180)
+  R3. IF BIR_Low->Low(OVOL2, PRR15L) fires
+        THEN class=Testicular Germ Cell Tumor  (precision=0.070, recall=0.806, lift=4.56, support=0.177)
+  R4. IF BIR_High->High(XAGE1A, XAGE1B) fires
+        THEN class=Testicular Germ Cell Tumor  (precision=0.070, recall=0.677, lift=4.54, support=0.149)
+  R5. IF BIR_High->High(ALPPL2, ALPP) fires
+        THEN class=Testicular Germ Cell Tumor  (precision=0.065, recall=0.968, lift=4.21, support=0.230)
+
+Class: Thymoma
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(CLDN4, ITGB6) fires
+        THEN class=Thymoma  (precision=0.072, recall=0.375, lift=6.03, support=0.062)
+  R2. IF BIR_Low->Low(RP11-465B22.8, SLC5A1) fires
+        THEN class=Thymoma  (precision=0.060, recall=0.917, lift=5.06, support=0.181)
+  R3. IF BIR_High->High(CALML3, RNASE7) fires
+        THEN class=Thymoma  (precision=0.059, recall=1.000, lift=4.92, support=0.203)
+  R4. IF BIR_High->High(KRT5, FOXN1) fires
+        THEN class=Thymoma  (precision=0.058, recall=0.958, lift=4.88, support=0.196)
+  R5. IF BIR_Low->Low(GRHL2, SPDEF) fires
+        THEN class=Thymoma  (precision=0.057, recall=0.833, lift=4.82, support=0.173)
+
+Class: Thyroid Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(U47924.27, ALDH3B2) fires
+        THEN class=Thyroid Carcinoma  (precision=0.422, recall=0.947, lift=7.44, support=0.127)
+  R2. IF BIR_High->High(SFTA3, RP11-896J10.3) fires
+        THEN class=Thyroid Carcinoma  (precision=0.363, recall=1.000, lift=6.40, support=0.156)
+  R3. IF BIR_High->High(SFTPB, NKX2-1-AS1) fires
+        THEN class=Thyroid Carcinoma  (precision=0.351, recall=0.982, lift=6.19, support=0.159)
+  R4. IF BIR_High->High(SFTPB, SFTA3) fires
+        THEN class=Thyroid Carcinoma  (precision=0.348, recall=0.982, lift=6.14, support=0.160)
+  R5. IF BIR_High->High(SFTA3, NKX2-1-AS1) fires
+        THEN class=Thyroid Carcinoma  (precision=0.348, recall=1.000, lift=6.13, support=0.163)
+
+Class: Uterine Corpus Endometrioid Carcinoma
+------------------------------------------------------------
+  R1. IF BIR_High->High(EMX2, EMX2OS) fires
+        THEN class=Uterine Corpus Endometrioid Carcinoma  (precision=0.073, recall=0.951, lift=3.60, support=0.265)
+  R2. IF BIR_High->High(ALPPL2, ALPP) fires
+        THEN class=Uterine Corpus Endometrioid Carcinoma  (precision=0.069, recall=0.780, lift=3.40, support=0.230)
+  R3. IF BIR_Low->Low(PRSS22, TMPRSS11E) fires
+        THEN class=Uterine Corpus Endometrioid Carcinoma  (precision=0.063, recall=0.659, lift=3.07, support=0.214)
+  R4. IF BIR_Low->Low(RPS4Y1, RP11-115H13.1) fires
+        THEN class=Uterine Corpus Endometrioid Carcinoma  (precision=0.061, recall=0.780, lift=3.00, support=0.261)
+  R5. IF BIR_Low->Low(RPS4Y1, TBL1Y) fires
+        THEN class=Uterine Corpus Endometrioid Carcinoma  (precision=0.061, recall=0.780, lift=3.00, support=0.261)
+14:04:33 [INFO] 
+--- Per-Instance Explanation (DRM-style, test sample 0) ---

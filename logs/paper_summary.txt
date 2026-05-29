@@ -1,0 +1,180 @@
+########## tcga_rppa ##########
+08:45:37 [INFO] RESULTS: tcga_rppa: TCGA pan-cancer RPPA (Akbani et al., 2014)
+08:45:37 [INFO] ========================================================================
+08:45:37 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+08:45:37 [INFO] ------------------------------------------------------------------------
+08:45:37 [INFO] BIRDNet         0.9663 +/- 0.0060 0.9464 +/- 0.0109 0.9991 +/- 0.0002        142.7
+08:45:37 [INFO] MLP             0.9644 +/- 0.0037 0.9416 +/- 0.0052 0.9988 +/- 0.0002         17.7
+08:45:37 [INFO] LogReg_L1       0.9668 +/- 0.0019 0.9526 +/- 0.0035 0.9989 +/- 0.0001        160.1
+08:45:37 [INFO] RandomForest    0.9561 +/- 0.0038 0.9263 +/- 0.0041 0.9986 +/- 0.0002          0.5
+08:45:37 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+08:45:37 [INFO]          binarize: 73.08s (min 72.34, max 74.00)
+08:45:37 [INFO]     bir_discovery: 8.45s (min 7.56, max 8.82)
+08:45:37 [INFO]            select: 0.72s (min 0.70, max 0.74)
+08:45:37 [INFO]           forward: 0.09s (min 0.06, max 0.24)
+08:45:37 [INFO]       build_total: 82.91s (min 82.05, max 83.90)
+08:45:37 [INFO]             train: 59.76s (min 41.66, max 114.28)
+08:45:37 [INFO]         BIR units: mean 7095, range 7070-7114
+08:45:37 [INFO] 
+Parameter counts (mean over folds):
+08:45:37 [INFO]        BIRDNet active (BIR layers): 21,285
+08:45:37 [INFO]       BIRDNet nominal (BIR layers): 11,022,605
+08:45:37 [INFO]            Classifier head (dense): 336,009
+08:45:37 [INFO]               BIRDNet total active: 357,294
+08:45:37 [INFO]              BIRDNet total nominal: 11,358,614
+08:45:37 [INFO]                   MatchedMLP total: 11,358,614
+08:45:37 [INFO]                 BIR-layer sparsity: 0.9981 (0.19% active)
+08:45:37 [INFO]                     Total sparsity: 0.9685 (3.15% active)
+08:45:37 [INFO]                  MLP/BIRDNet ratio: 31.8x
+
+########## uci_mice_protein ##########
+08:50:14 [INFO] RESULTS: uci_mice_protein: UCI 342 mice protein (Higuera et al., 2015)
+08:50:14 [INFO] ========================================================================
+08:50:14 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+08:50:14 [INFO] ------------------------------------------------------------------------
+08:50:14 [INFO] BIRDNet         0.9796 +/- 0.0175 0.9805 +/- 0.0168 0.9981 +/- 0.0032          7.6
+08:50:14 [INFO] MLP             0.9954 +/- 0.0059 0.9955 +/- 0.0057 1.0000 +/- 0.0000          1.9
+08:50:14 [INFO] LogReg_L1       0.9833 +/- 0.0151 0.9834 +/- 0.0152 0.9987 +/- 0.0024          2.6
+08:50:14 [INFO] RandomForest    0.9898 +/- 0.0090 0.9902 +/- 0.0087 0.9998 +/- 0.0002          0.2
+08:50:14 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+08:50:14 [INFO]          binarize: 0.73s (min 0.66, max 0.77)
+08:50:14 [INFO]     bir_discovery: 0.72s (min 0.42, max 0.82)
+08:50:14 [INFO]            select: 0.00s (min 0.00, max 0.00)
+08:50:14 [INFO]           forward: 0.04s (min 0.00, max 0.20)
+08:50:14 [INFO]       build_total: 1.52s (min 1.38, max 1.61)
+08:50:14 [INFO]             train: 6.09s (min 4.87, max 6.71)
+08:50:14 [INFO]         BIR units: mean 2820, range 2256-3147
+08:50:14 [INFO] 
+Parameter counts (mean over folds):
+08:50:14 [INFO]        BIRDNet active (BIR layers): 8,460
+08:50:14 [INFO]       BIRDNet nominal (BIR layers): 365,690
+08:50:14 [INFO]            Classifier head (dense): 178,384
+08:50:14 [INFO]               BIRDNet total active: 186,844
+08:50:14 [INFO]              BIRDNet total nominal: 544,074
+08:50:14 [INFO]                   MatchedMLP total: 544,074
+08:50:14 [INFO]                 BIR-layer sparsity: 0.9765 (2.35% active)
+08:50:14 [INFO]                     Total sparsity: 0.6535 (34.65% active)
+08:50:14 [INFO]                  MLP/BIRDNet ratio: 2.9x
+
+########## uci_gene_expression ##########
+09:03:56 [INFO] RESULTS: uci_gene_expression: UCI 401 gene expression (Fiorini, 2016)
+09:03:56 [INFO] ========================================================================
+09:03:56 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+09:03:56 [INFO] ------------------------------------------------------------------------
+09:03:56 [INFO] BIRDNet         0.9850 +/- 0.0064 0.9833 +/- 0.0065 0.9997 +/- 0.0005         75.9
+09:03:56 [INFO] MLP             1.0000 +/- 0.0000 1.0000 +/- 0.0000 1.0000 +/- 0.0000          5.4
+09:03:56 [INFO] LogReg_L1       0.9963 +/- 0.0050 0.9968 +/- 0.0043 1.0000 +/- 0.0000         76.5
+09:03:56 [INFO] RandomForest    0.9975 +/- 0.0031 0.9979 +/- 0.0026 1.0000 +/- 0.0000          0.2
+09:03:56 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+09:03:56 [INFO]          binarize: 17.95s (min 17.88, max 18.01)
+09:03:56 [INFO]     bir_discovery: 25.91s (min 24.94, max 27.14)
+09:03:56 [INFO]            select: 5.72s (min 5.58, max 6.00)
+09:03:56 [INFO]           forward: 0.09s (min 0.05, max 0.21)
+09:03:56 [INFO]       build_total: 53.68s (min 52.49, max 55.09)
+09:03:56 [INFO]             train: 22.27s (min 17.50, max 33.07)
+09:03:56 [INFO]         BIR units: mean 10000, range 10000-10000
+09:03:56 [INFO] 
+Parameter counts (mean over folds):
+09:03:56 [INFO]        BIRDNet active (BIR layers): 30,000
+09:03:56 [INFO]       BIRDNet nominal (BIR layers): 35,010,000
+09:03:56 [INFO]            Classifier head (dense): 340,389
+09:03:56 [INFO]               BIRDNet total active: 370,389
+09:03:56 [INFO]              BIRDNet total nominal: 35,350,389
+09:03:56 [INFO]                   MatchedMLP total: 35,350,389
+09:03:56 [INFO]                 BIR-layer sparsity: 0.9991 (0.09% active)
+09:03:56 [INFO]                     Total sparsity: 0.9895 (1.05% active)
+09:03:56 [INFO]                  MLP/BIRDNet ratio: 95.4x
+
+########## gse39582 ##########
+09:16:11 [INFO] RESULTS: gse39582: Colon cancer molecular subtypes (Marisa et al., 2013)
+09:16:11 [INFO] ========================================================================
+09:16:11 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+09:16:11 [INFO] ------------------------------------------------------------------------
+09:16:11 [INFO] BIRDNet         0.7739 +/- 0.0292 0.7721 +/- 0.0302 0.9622 +/- 0.0123         62.8
+09:16:11 [INFO] MLP             0.8127 +/- 0.0220 0.8192 +/- 0.0175 0.9784 +/- 0.0043          3.9
+09:16:11 [INFO] LogReg_L1       0.8234 +/- 0.0266 0.8283 +/- 0.0281 0.9773 +/- 0.0042         58.9
+09:16:11 [INFO] RandomForest    0.8411 +/- 0.0263 0.8539 +/- 0.0270 0.9722 +/- 0.0061          0.2
+09:16:11 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+09:16:11 [INFO]          binarize: 12.24s (min 12.19, max 12.31)
+09:16:11 [INFO]     bir_discovery: 27.95s (min 24.81, max 30.68)
+09:16:11 [INFO]            select: 6.60s (min 5.89, max 7.62)
+09:16:11 [INFO]           forward: 0.08s (min 0.05, max 0.20)
+09:16:11 [INFO]       build_total: 50.88s (min 46.64, max 55.25)
+09:16:11 [INFO]             train: 11.96s (min 7.05, max 16.22)
+09:16:11 [INFO]         BIR units: mean 10000, range 10000-10000
+09:16:11 [INFO] 
+Parameter counts (mean over folds):
+09:16:11 [INFO]        BIRDNet active (BIR layers): 30,000
+09:16:11 [INFO]       BIRDNet nominal (BIR layers): 35,010,000
+09:16:11 [INFO]            Classifier head (dense): 340,454
+09:16:11 [INFO]               BIRDNet total active: 370,454
+09:16:11 [INFO]              BIRDNet total nominal: 35,350,454
+09:16:11 [INFO]                   MatchedMLP total: 35,350,454
+09:16:11 [INFO]                 BIR-layer sparsity: 0.9991 (0.09% active)
+09:16:11 [INFO]                     Total sparsity: 0.9895 (1.05% active)
+09:16:11 [INFO]                  MLP/BIRDNet ratio: 95.4x
+
+########## metabric ##########
+09:49:44 [INFO] RESULTS: metabric: Breast cancer PAM50 subtype (Curtis et al., 2012)
+09:49:44 [INFO] ========================================================================
+09:49:44 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+09:49:44 [INFO] ------------------------------------------------------------------------
+09:49:44 [INFO] BIRDNet         0.7437 +/- 0.0156 0.6796 +/- 0.0213 0.9473 +/- 0.0088        149.2
+09:49:44 [INFO] MLP             0.7746 +/- 0.0256 0.7321 +/- 0.0511 0.9655 +/- 0.0042         10.2
+09:49:44 [INFO] LogReg_L1       0.7908 +/- 0.0174 0.7555 +/- 0.0253 0.9647 +/- 0.0048        220.9
+09:49:44 [INFO] RandomForest    0.7923 +/- 0.0190 0.7412 +/- 0.0309 0.9653 +/- 0.0050          0.3
+09:49:44 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+09:49:44 [INFO]          binarize: 48.76s (min 48.52, max 48.94)
+09:49:44 [INFO]     bir_discovery: 33.54s (min 32.08, max 34.92)
+09:49:44 [INFO]            select: 6.86s (min 6.70, max 7.16)
+09:49:44 [INFO]           forward: 0.09s (min 0.06, max 0.21)
+09:49:44 [INFO]       build_total: 93.72s (min 92.09, max 95.55)
+09:49:44 [INFO]             train: 55.45s (min 47.29, max 73.02)
+09:49:44 [INFO]         BIR units: mean 10000, range 10000-10000
+09:49:44 [INFO] 
+Parameter counts (mean over folds):
+09:49:44 [INFO]        BIRDNet active (BIR layers): 30,000
+09:49:44 [INFO]       BIRDNet nominal (BIR layers): 35,010,000
+09:49:44 [INFO]            Classifier head (dense): 340,454
+09:49:44 [INFO]               BIRDNet total active: 370,454
+09:49:44 [INFO]              BIRDNet total nominal: 35,350,454
+09:49:44 [INFO]                   MatchedMLP total: 35,350,454
+09:49:44 [INFO]                 BIR-layer sparsity: 0.9991 (0.09% active)
+09:49:44 [INFO]                     Total sparsity: 0.9895 (1.05% active)
+09:49:44 [INFO]                  MLP/BIRDNet ratio: 95.4x
+
+########## tcga_rnaseq ##########
+13:46:47 [INFO] RESULTS: tcga_rnaseq: TCGA pan-cancer RNA-seq (Weinstein et al., 2013)
+13:46:47 [INFO] ========================================================================
+13:46:47 [INFO] Method                  Accuracy       F1 (macro)            AUROC     Time (s)
+13:46:47 [INFO] ------------------------------------------------------------------------
+13:46:47 [INFO] BIRDNet         0.9151 +/- 0.0084 0.8668 +/- 0.0150 0.9964 +/- 0.0004        728.3
+13:46:47 [INFO] MLP             0.9503 +/- 0.0023 0.9166 +/- 0.0096 0.9985 +/- 0.0003         55.1
+13:46:47 [INFO] LogReg_L1       0.9690 +/- 0.0025 0.9532 +/- 0.0039 0.9995 +/- 0.0001       1969.2
+13:46:47 [INFO] RandomForest    0.9447 +/- 0.0060 0.9064 +/- 0.0067 0.9981 +/- 0.0005          1.1
+13:46:47 [INFO] 
+BIRDNet timing breakdown (mean over folds):
+13:46:47 [INFO]          binarize: 307.88s (min 306.45, max 311.69)
+13:46:47 [INFO]     bir_discovery: 70.86s (min 67.82, max 76.79)
+13:46:47 [INFO]            select: 5.96s (min 5.88, max 6.07)
+13:46:47 [INFO]           forward: 0.13s (min 0.10, max 0.24)
+13:46:47 [INFO]       build_total: 389.11s (min 384.82, max 398.90)
+13:46:47 [INFO]             train: 339.17s (min 284.21, max 386.56)
+13:46:47 [INFO]         BIR units: mean 10000, range 10000-10000
+13:46:47 [INFO] 
+Parameter counts (mean over folds):
+13:46:47 [INFO]        BIRDNet active (BIR layers): 30,000
+13:46:47 [INFO]       BIRDNet nominal (BIR layers): 35,010,000
+13:46:47 [INFO]            Classifier head (dense): 341,754
+13:46:47 [INFO]               BIRDNet total active: 371,754
+13:46:47 [INFO]              BIRDNet total nominal: 35,351,754
+13:46:47 [INFO]                   MatchedMLP total: 35,351,754
+13:46:47 [INFO]                 BIR-layer sparsity: 0.9991 (0.09% active)
+13:46:47 [INFO]                     Total sparsity: 0.9895 (1.05% active)
+13:46:47 [INFO]                  MLP/BIRDNet ratio: 95.1x
+

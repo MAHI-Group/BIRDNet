@@ -1,0 +1,81 @@
+--- Per-Class Decision Rules (DRM-style propositionalisation) ---
+09:53:22 [INFO] 
+Class: Basal
+------------------------------------------------------------
+  R1. IF BIR_High->High(ROPN1B, ROPN1) fires
+        THEN class=Basal  (precision=0.614, recall=0.643, lift=5.77, support=0.111)
+  R2. IF BIR_High->High(ROPN1B, FOXC1) fires
+        THEN class=Basal  (precision=0.609, recall=0.667, lift=5.72, support=0.116)
+  R3. IF BIR_Low->Low(SPDEF, TFF3) fires
+        THEN class=Basal  (precision=0.604, recall=0.762, lift=5.68, support=0.134)
+  R4. IF BIR_Low->Low(FOXA1, C9orf152) fires
+        THEN class=Basal  (precision=0.596, recall=0.738, lift=5.61, support=0.132)
+  R5. IF BIR_Low->Low(FOXA1, AR) fires
+        THEN class=Basal  (precision=0.596, recall=0.738, lift=5.61, support=0.132)
+
+Class: Her2
+------------------------------------------------------------
+  R1. IF BIR_High->High(PGAP3, ERBB2) fires
+        THEN class=Her2  (precision=0.543, recall=0.556, lift=4.77, support=0.116)
+  R2. IF BIR_High->High(PGAP3, GRB7) fires
+        THEN class=Her2  (precision=0.535, recall=0.511, lift=4.70, support=0.109)
+  R3. IF BIR_High->High(STARD3, ERBB2) fires
+        THEN class=Her2  (precision=0.531, recall=0.578, lift=4.66, support=0.124)
+  R4. IF BIR_High->High(MIEN1, ERBB2) fires
+        THEN class=Her2  (precision=0.511, recall=0.533, lift=4.48, support=0.119)
+  R5. IF BIR_High->High(MIEN1, PGAP3) fires
+        THEN class=Her2  (precision=0.500, recall=0.489, lift=4.39, support=0.111)
+
+Class: LumA
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(NCAPG, CENPA) fires
+        THEN class=LumA  (precision=0.727, recall=0.571, lift=2.05, support=0.278)
+  R2. IF BIR_Low->Low(PTTG1, STIL) fires
+        THEN class=LumA  (precision=0.726, recall=0.586, lift=2.05, support=0.286)
+  R3. IF BIR_High->High(PSD3, NAT1) fires
+        THEN class=LumA  (precision=0.724, recall=0.507, lift=2.04, support=0.248)
+  R4. IF BIR_Low->Low(PTTG1, CENPN) fires
+        THEN class=LumA  (precision=0.722, recall=0.557, lift=2.04, support=0.273)
+  R5. IF BIR_Low->Low(PTTG1, BLM) fires
+        THEN class=LumA  (precision=0.720, recall=0.550, lift=2.03, support=0.271)
+
+Class: LumB
+------------------------------------------------------------
+  R1. IF BIR_Low->Low(SFRP1, BOC) fires
+        THEN class=LumB  (precision=0.525, recall=0.884, lift=2.18, support=0.405)
+  R2. IF BIR_Low->Low(KRT17, KRT14) fires
+        THEN class=LumB  (precision=0.524, recall=0.789, lift=2.18, support=0.362)
+  R3. IF BIR_Low->Low(YBX3, YBX3P1) fires
+        THEN class=LumB  (precision=0.523, recall=0.474, lift=2.18, support=0.218)
+  R4. IF BIR_Low->Low(GLIPR2, HAPLN3) fires
+        THEN class=LumB  (precision=0.511, recall=0.484, lift=2.13, support=0.228)
+  R5. IF BIR_Low->Low(KRT17, KRT5) fires
+        THEN class=LumB  (precision=0.503, recall=0.863, lift=2.09, support=0.413)
+
+Class: Normal
+------------------------------------------------------------
+  R1. IF BIR_High->High(COL17A1, MYH11) fires
+        THEN class=Normal  (precision=0.301, recall=0.759, lift=4.10, support=0.185)
+  R2. IF BIR_High->High(ABCA9, ABCA6) fires
+        THEN class=Normal  (precision=0.298, recall=0.483, lift=4.06, support=0.119)
+  R3. IF BIR_High->High(SYNM, SFRP1) fires
+        THEN class=Normal  (precision=0.275, recall=0.655, lift=3.75, support=0.175)
+  R4. IF BIR_High->High(ECRG4, SFRP1) fires
+        THEN class=Normal  (precision=0.272, recall=0.759, lift=3.70, support=0.205)
+  R5. IF BIR_High->High(ECRG4, MYH11) fires
+        THEN class=Normal  (precision=0.268, recall=0.759, lift=3.65, support=0.208)
+
+Class: claudin-low
+------------------------------------------------------------
+  R1. IF BIR_High->High(CD247, CCL5) fires
+        THEN class=claudin-low  (precision=0.609, recall=0.318, lift=5.46, support=0.058)
+  R2. IF BIR_High->High(TLR4, AKR1B1) fires
+        THEN class=claudin-low  (precision=0.564, recall=0.500, lift=5.06, support=0.099)
+  R3. IF BIR_High->High(IL23A, CCL5) fires
+        THEN class=claudin-low  (precision=0.560, recall=0.318, lift=5.03, support=0.063)
+  R4. IF BIR_High->High(KIR2DL4, KIR2DL3) fires
+        THEN class=claudin-low  (precision=0.545, recall=0.409, lift=4.90, support=0.084)
+  R5. IF BIR_High->High(PTPRC, C1orf162) fires
+        THEN class=claudin-low  (precision=0.508, recall=0.727, lift=4.56, support=0.159)
+09:53:22 [INFO] 
+--- Per-Instance Explanation (DRM-style, test sample 0) ---
