@@ -5,7 +5,7 @@ Code for the paper:
 > Tirtharaj Dash. *BIRDNet: Mining and Encoding Boolean Implication Knowledge Graphs as Interpretable Deep Neural Networks*. arXiv:2605.28739, 2026. [doi.org/10.48550/arXiv.2605.28739](https://doi.org/10.48550/arXiv.2605.28739)
 
 <p align="center">
-  <img src="figures/fig1a_bir_quadrants.pdf.png" alt="BIRDNet overview" width="300"/>
+  <img src="figures/fig1_readme.png" alt="BIRDNet overview" width="350"/>
 </p>
 
 BIRDNet mines Boolean Implication Relationships (BIRs) from tabular data via a sparse-exception binomial test and encodes them as the connectivity of a layered neural network. Each hidden unit corresponds to one mined two-literal rule and binds only to its two input features, giving a model that is sparse by construction and whose rules can be read directly off the trained weights, without surrogate explainers.
