@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper."
+type: software
+title: "BIRDNet"
+abstract: >-
+  BIRDNet mines Boolean Implication Relationships from tabular data and
+  encodes them as the connectivity of a sparse, interpretable deep
+  neural network in which each hidden unit corresponds to one
+  two-literal propositional rule.
+authors:
+  - family-names: Dash
+    given-names: Tirtharaj
+    orcid: "https://orcid.org/0000-0001-5965-8286"
+    email: tirtharaj@goa.bits-pilani.ac.in
+    affiliation: "BITS Pilani, K K Birla Goa Campus"
+repository-code: "https://github.com/tirtharajdash/BI-DNN"
+license: MIT
+keywords:
+  - neurosymbolic-ai
+  - interpretable-machine-learning
+  - boolean-implication
+  - deep-learning
+  - computational-biology
+  - gene-expression
+  - sparse-neural-networks
+preferred-citation:
+  type: article
+  title: "BIRDNet: Mining and Encoding Boolean Implication Knowledge Graphs as Interpretable Deep Neural Networks"
+  authors:
+    - family-names: Dash
+      given-names: Tirtharaj
+      orcid: "https://orcid.org/0000-0001-5965-8286"
+      affiliation: "BITS Pilani, K K Birla Goa Campus"
+  year: 2026
+  journal: "arXiv preprint"
+  doi: "10.48550/arXiv.2605.28739"
+  url: "https://arxiv.org/abs/2605.28739"
